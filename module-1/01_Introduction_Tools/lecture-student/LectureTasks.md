@@ -16,15 +16,20 @@
 - [ ] Laptop Familiarization
 - [ ] File System Overview
 - [ ] Discuss Command-line Applications
+
 - [ ] Shell Commands: pwd
+
 - [ ] Shell Commands: ls
 - [ ] Shell Commands: ls -A
+- [ ] Shell Commands: ls subdir
+
 - [ ] Shell Commands: cd
 - [ ] Shell Commands: cd mydir
 - [ ] Shell Commands: cd ..
 - [ ] Shell Commands: cd mydir/subdir
 - [ ] Shell Commands: cd ~
 - [ ] Shell Commands: cd /
+
 - [ ] Shell Commands: mkdir somedir
 
 - [ ] Breakout Task: Create a `playground` directory inside of your home (~) directory
@@ -36,6 +41,10 @@
 - [ ] Breakout Task: Create a `playground/usa/franklin/columbus.txt` file
 
 - [ ] Shell Commands: Paths with spaces
+
+- [ ] Shell Commands: Copy files
+- [ ] Shell Commands: Move files
+- [ ] Shell Commands: Rename files
 
 --- 
 
