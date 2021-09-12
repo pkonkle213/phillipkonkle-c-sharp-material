@@ -27,6 +27,9 @@
 
 - [ ] Shell Commands: pwd
 
+- [ ] Shell Shortcuts: up / down
+- [ ] Shell Shortcuts: tab
+
 - [ ] Shell Commands: ls
 - [ ] Shell Commands: ls -A
 - [ ] Shell Commands: ls subdir
@@ -39,6 +42,7 @@
 - [ ] Shell Commands: cd /
 
 - [ ] Shell Commands: mkdir somedir
+- [ ] Shell Commands: mkdir somefolder/somedir
 
 - [ ] Shell Commands: touch somefile
 
