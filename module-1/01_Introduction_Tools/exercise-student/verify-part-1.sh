@@ -12,10 +12,10 @@ echo ""
 echo "---- VERIFYING  ---- " | tee $OUTPUT
 echo ""
 
-PATHS=("" "/usa" "/canada" "/usa/ohio" "/usa/pennsylvania" "/usa/michigan" "/canada/quebec" "/canada/british columbia" "/usa/ohio/cuyahoga" 
+PATHS=("" "/usa" "/canada" "/usa/ohio" "/usa/pennsylvania" "/usa/michigan" "/canada/quebec" "/canada/british-columbia" "/usa/ohio/cuyahoga" 
 "/usa/ohio/hamilton" "/usa/ohio/franklin" "/usa/pennsylvania/allegheny" "/usa/michigan/wayne" "/usa/ohio/cuyahoga/cleveland.txt" "/usa/ohio/hamilton/cincinnati.txt" 
 "/usa/ohio/franklin/columbus.txt" "/usa/pennsylvania/allegheny/pittsburgh.txt" "/usa/michigan/wayne/detroit.txt" "/canada/quebec/montreal.txt" "/canada/quebec/quebec-city.txt" 
-"/canada/british columbia/vancouver.txt" "/canada/british columbia/prince-george.txt")
+"/canada/british-columbia/vancouver.txt" "/canada/british-columbia/prince-george.txt")
 
 EXERCISE_COUNT="${#PATHS[@]}"
 
@@ -49,6 +49,6 @@ if ((ERRORS>0)); then
     echo " - Use 'pwd' to print out your current working directory."
     echo " - Check for typos in the names of folders or file paths."
     echo " - When changing directories, '..' means up one directory. '.' means the current directory."
-    echo " - Reference Finder (Mac) or Explorer (PC) to make sure everything is in the correct location."
+    echo " - Reference File Explorer to make sure everything is in the correct location."
     echo ""
 fi

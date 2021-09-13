@@ -13,11 +13,22 @@
 
 ## Tasks
 
-- [ ] Laptop Familiarization
+- [ ] Syllabus
+- [ ] Learning
+    
 - [ ] File System Overview
+- [ ] Laptop Familiarization: 
+    - [ ] Switching programs
+    - [ ] Minimizing / Maximizing
+    - [ ] Docking
+    - [ ] Start Menu
+
 - [ ] Discuss Command-line Applications
 
 - [ ] Shell Commands: pwd
+
+- [ ] Shell Shortcuts: up / down
+- [ ] Shell Shortcuts: tab
 
 - [ ] Shell Commands: ls
 - [ ] Shell Commands: ls -A
@@ -31,20 +42,21 @@
 - [ ] Shell Commands: cd /
 
 - [ ] Shell Commands: mkdir somedir
-
-- [ ] Breakout Task: Create a `playground` directory inside of your home (~) directory
+- [ ] Shell Commands: mkdir somefolder/somedir
 
 - [ ] Shell Commands: touch somefile
-- [ ] Shell Commands: rm somefile
-- [ ] Shell Commands: rmdir -rf somedir
 
+- [ ] Breakout Task: Create a `playground` directory inside of your home (~) directory
 - [ ] Breakout Task: Create a `playground/usa/franklin/columbus.txt` file
 
-- [ ] Shell Commands: Paths with spaces
+- [ ] Shell Commands: rm somefile
+- [ ] Shell Commands: rmdir -rf somedir
 
 - [ ] Shell Commands: Copy files
 - [ ] Shell Commands: Move files
 - [ ] Shell Commands: Rename files
+
+- [ ] Shell Commands: Paths with spaces
 
 --- 
 
