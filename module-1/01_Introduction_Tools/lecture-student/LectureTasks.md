@@ -13,62 +13,63 @@
 
 ## Tasks
 
-- [ ] Syllabus
-- [ ] Learning
+- [x] Syllabus
+- [x] Learning
     
-- [ ] File System Overview
-- [ ] Laptop Familiarization: 
-    - [ ] Switching programs
-    - [ ] Minimizing / Maximizing
-    - [ ] Docking
-    - [ ] Start Menu
+- [x] File System Overview
+- [x] Laptop Familiarization: 
+    - [x] Switching programs
+    - [x] Minimizing / Maximizing
+    - [x] Docking
+    - [x] Start Menu
 
-- [ ] Discuss Command-line Applications
+- [x] Discuss Command-line Applications
 
-- [ ] Shell Commands: pwd
+- [x] Shell Commands: pwd
 
-- [ ] Shell Shortcuts: up / down
-- [ ] Shell Shortcuts: tab
+- [x] Shell Shortcuts: up / down
+- [x] Shell Shortcuts: tab
 
-- [ ] Shell Commands: ls
-- [ ] Shell Commands: ls -A
-- [ ] Shell Commands: ls subdir
+- [x] Shell Commands: ls
+- [x] Shell Commands: ls -A
+- [x] Shell Commands: ls subdir
 
-- [ ] Shell Commands: cd
-- [ ] Shell Commands: cd mydir
-- [ ] Shell Commands: cd ..
-- [ ] Shell Commands: cd mydir/subdir
-- [ ] Shell Commands: cd ~
-- [ ] Shell Commands: cd /
+- [x] Shell Commands: cd
+- [x] Shell Commands: cd mydir
+- [x] Shell Commands: cd ..
+- [x] Shell Commands: cd mydir/subdir
+- [x] Shell Commands: cd ~
+- [x] Shell Commands: cd /
 
-- [ ] Shell Commands: mkdir somedir
-- [ ] Shell Commands: mkdir somefolder/somedir
+- [x] Shell Commands: mkdir somedir
+- [x] Shell Commands: mkdir somefolder/somedir
 
-- [ ] Shell Commands: touch somefile
+- [x] Shell Commands: touch somefile
 
-- [ ] Breakout Task: Create a `playground` directory inside of your home (~) directory
-- [ ] Breakout Task: Create a `playground/usa/franklin/columbus.txt` file
+- [x] Breakout Task: Create a `playground` directory inside of your home (~) directory
+- [x] Breakout Task: Create a `playground/usa/franklin/columbus.txt` file
 
-- [ ] Shell Commands: rm somefile
-- [ ] Shell Commands: rmdir -rf somedir
+- [x] Shell Commands: rm somefile
+- [x] Shell Commands: rm -rf somedir
 
-- [ ] Shell Commands: Copy files
-- [ ] Shell Commands: Move files
-- [ ] Shell Commands: Rename files
+- [x] Shell Commands: Copy files
+- [x] Shell Commands: Move files
+- [x] Shell Commands: Rename files
 
-- [ ] Shell Commands: Paths with spaces
+- [x] Shell Commands: Paths with spaces
 
 --- 
 
-- [ ] Source Control Principles
-- [ ] bitbucket.org - https://bitbucket.org/te-cbus-cohort-15/c-sharp-material/src/main/
-- [ ] git Repositories
-- [ ] git status & command-line elements
-- [ ] git clone
-- [ ] git pull
-- [ ] git add
-- [ ] git commit
-- [ ] git push
+- [x] Source Control Principles
+- [x] bitbucket.org - https://bitbucket.org/te-cbus-cohort-15/c-sharp-material/src/main/
+- [x] git Repositories
+- [x] git status & command-line elements
+- [x] git init
+- [x] git clone
+- [x] git pull
+- [x] git add
+- [x] git commit
+- [x] git push
 
 ## **Reference Materials**
 
