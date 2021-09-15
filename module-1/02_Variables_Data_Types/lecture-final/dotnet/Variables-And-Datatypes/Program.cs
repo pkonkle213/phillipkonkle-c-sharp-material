@@ -226,6 +226,18 @@ namespace VariablesAndDatatypes
             */
             doneWithExercises = true;
 
+            double percentage = 123 / 800; // 0.0 - 1.0
+            int convertedPercent = (int) (percentage * 100); // 0 - 100
+
+            const int numberOfEyes = 2;
+            // Can't do this: numberOfEyes = 3;
+
+            double aVeryCloseValue = 1.000000000009;
+            if (aVeryCloseValue - 1 < 0.0001) // It's really close to 1
+            {
+
+            }
+
             // The program will stop here and wait for the user to press enter.
             Console.ReadLine(); 
         }
