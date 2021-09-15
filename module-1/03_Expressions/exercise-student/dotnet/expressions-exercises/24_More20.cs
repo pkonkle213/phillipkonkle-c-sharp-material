@@ -11,7 +11,7 @@
          */
         public bool More20(int n)
         {
-            return false;
+            return (n%20==1 || n%20==2);
         }
     }
 }

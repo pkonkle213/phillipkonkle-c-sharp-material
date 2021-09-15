@@ -129,7 +129,6 @@ namespace VariableNaming
             altogether?
             */
 
-            int numTreats = 5;
             int largeMarshmallows = 8;
             int miniMarshmallows = 10;
 
@@ -292,7 +291,7 @@ namespace VariableNaming
             */
 
             decimal moneyKate = 1.0M;
-            decimal costCandy = .54m;
+            decimal costCandy = .54M;
             decimal change = moneyKate - costCandy;
 
             /*
@@ -385,10 +384,10 @@ namespace VariableNaming
             person get if they share the cupcakes equally?
             */
 
-            decimal totalCupcakes = 96;
-            decimal numChildren = 8;
+            double totalCupcakes = 96;
+            double numChildren = 8;
 
-            decimal evenSplitCupcakes = totalCupcakes / numChildren;
+            double evenSplitCupcakes = totalCupcakes / numChildren;
 
             /*
             40. She made 47 gingerbread cookies which she will distribute equally in
@@ -513,7 +512,7 @@ namespace VariableNaming
             double guestsChristina = 7.0;
 
             double guestsEvenlyServed = totalCroissantsCristina / guestsChristina;
-            
+       
             /*
             51. Bill and Jill are house painters. Bill can paint a 12 x 14 room in 2.15 hours, while Jill averages
             1.90 hours. How long will it take the two painters working together to paint 5 12 x 14 rooms?
@@ -525,7 +524,7 @@ namespace VariableNaming
             int roomArea = roomHeight * roomWidth;
 
             double timeBill = 2.15;
-            double timeJill = 1.9; // Slacker
+            double timeJill = 1.90; // Slacker
 
             double rateBill = roomArea / timeBill;
             double rateJill = roomArea / timeJill;
@@ -558,7 +557,7 @@ namespace VariableNaming
             int distanceTraveled = 537;
 
             int percentageTraveled = (distanceTraveled * 100) / distanceTotal;
-
+            
         }
     }
 }

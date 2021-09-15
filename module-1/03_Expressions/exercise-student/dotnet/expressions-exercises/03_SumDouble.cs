@@ -10,7 +10,12 @@
          */
         public int SumDouble(int a, int b)
         {
-            return 0;
+            int result =a+b;
+            if (a == b)
+            {
+                result *= 2;
+            }
+            return result;
         }
     }
 }

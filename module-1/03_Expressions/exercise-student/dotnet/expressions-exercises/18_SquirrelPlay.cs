@@ -12,6 +12,15 @@
         */
         public bool SquirrelPlay(int temp, bool isSummer)
         {
+            int upperLimit=90;
+            if (isSummer)
+            {
+                upperLimit = 100;
+            }
+            if (temp >=60 && temp <= upperLimit)
+            {
+                return true;
+            }
             return false;
         }
     }
