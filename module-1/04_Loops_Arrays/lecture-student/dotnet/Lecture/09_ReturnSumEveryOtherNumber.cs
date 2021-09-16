@@ -12,7 +12,10 @@
         public int ReturnSumEveryOtherNumber(int[] arrayToLoopThrough)
         {
             int sum = 0;
-
+            for(int indexArray = 0; indexArray < arrayToLoopThrough.Length; indexArray += 2)
+            {
+                sum += arrayToLoopThrough[indexArray];
+            }
 
             return sum;
         }

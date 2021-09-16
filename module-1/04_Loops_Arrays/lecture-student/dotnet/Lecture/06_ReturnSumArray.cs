@@ -9,9 +9,15 @@
         public int ReturnSumArray()
         {
             int[] arrayToLoopThrough = { 3, 4, 2, 9 };
+            
+            int sum = 0;
 
+            for (int indexArray = 0; indexArray<arrayToLoopThrough.Length; indexArray++)
+            {
+                sum += arrayToLoopThrough[indexArray];
+            }
 
-            return 0;
+            return sum;
         }
     }
 }

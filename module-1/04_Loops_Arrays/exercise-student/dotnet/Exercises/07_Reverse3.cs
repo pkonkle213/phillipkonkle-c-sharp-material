@@ -11,7 +11,11 @@
          */
         public int[] Reverse3(int[] nums)
         {
-            return new int[] { };
+            int store=nums[0]; //stores the first value
+            nums[0] = nums[2]; //moves the last value to the first value
+            nums[2] = store; //replaces the last value with the stored value
+
+            return nums;
         }
     }
 }

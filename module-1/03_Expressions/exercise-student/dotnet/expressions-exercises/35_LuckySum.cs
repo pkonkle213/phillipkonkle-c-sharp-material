@@ -14,26 +14,19 @@
          */
         public int LuckySum(int a, int b, int c)
         {
-            int addA = 1;
-            int addB = 1;
-            int addC = 1;
-
             if (a == 13)
             {
-                addA = 0;
-                addB = 0;
+                return c;
             }
-            if (b == 13)
+            else if (b == 13)
             {
-                addB = 0;
-                addC = 0;
+                return a;
             }
             if (c == 13)
             {
-                addC = 0;
+                return a + b;
             }
 
-            return addA*a + addB*b + addC*c;
         }
     }
 }
