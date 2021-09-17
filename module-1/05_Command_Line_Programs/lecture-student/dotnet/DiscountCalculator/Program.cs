@@ -14,19 +14,12 @@ namespace DiscountCalculator
         public static void Main(string[] args)
         {
             /* Future Matt, please make sure we discuss the following things:
-             * 
-            - [ ] While Loops
-            - [ ] Do While Loops
-            - [ ] Continue
-            - [ ] Break
+            - [ ] While Loops & Do While Loops
+            - [ ] Break & Continue
             - [ ] Write vs WriteLine
-            - [ ] ReadLine
-            - [ ] Parse
-            - [ ] ToString
-            - [ ] Math
-            - [ ] Merging
-            
-             Thank you. Signed, Past Matt */
+            - [ ] String Formatting
+            - [ ] Math Methods
+            */
 
             Console.WriteLine("Welcome to the Discount Calculator");
 
@@ -34,13 +27,8 @@ namespace DiscountCalculator
             // The answer needs to be saved as a double
             Console.Write("Enter the discount amount (w/out percentage): ");
 
-
             // Prompt the user for a series of prices
             Console.Write("Please provide a series of prices (space separated): ");
-
-
-
-
 
         } // When this method finishes, the program will end.
     }
