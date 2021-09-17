@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Text;
 
@@ -9,6 +9,7 @@ namespace DiscountCalculator
         public string GenerateGreetings()
         {
             string name = "Phillip Konkle Esquire";
+
 
             return "Hello " + name;
         }
