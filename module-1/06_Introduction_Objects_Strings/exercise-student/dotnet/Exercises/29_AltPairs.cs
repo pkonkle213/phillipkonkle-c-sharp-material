@@ -10,7 +10,23 @@
         */
         public string AltPairs(string str)
         {
-            return null;
+            if (str.Length < 3)
+            {
+                return str;
+            }
+            
+            string newString = "";
+
+            for (int i = 0; i < str.Length; i+=4)
+            {
+                newString += str[i];
+                if (i + 1 < str.Length)
+                {
+                    newString += str[i + 1];
+                }
+            }
+
+            return newString;
         }
     }
 }

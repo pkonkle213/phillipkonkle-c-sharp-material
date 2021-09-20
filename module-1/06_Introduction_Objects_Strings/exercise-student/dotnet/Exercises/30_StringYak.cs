@@ -11,7 +11,12 @@
         */
         public string StringYak(string str)
         {
-            return null;
+            if (str.Length < 3)
+            {
+                return str;
+            }
+
+            return str.Replace("yak", "");
         }
     }
 }

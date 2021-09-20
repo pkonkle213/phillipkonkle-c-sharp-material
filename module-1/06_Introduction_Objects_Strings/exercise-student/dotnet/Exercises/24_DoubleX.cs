@@ -10,7 +10,20 @@
         */
         public bool DoubleX(string str)
         {
-            return false;
+            if (str.Length < 2)
+            {
+                return false;
+            }
+            else if (str.IndexOf("x") == str.Length-1)
+            {
+                return false;
+            }
+            else
+            {
+                int testIndex = str.IndexOf("x");
+                bool test = str[testIndex+1] == 'x';
+                return test;
+            }
         }
     }
 }
