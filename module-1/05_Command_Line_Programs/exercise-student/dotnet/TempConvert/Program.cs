@@ -14,7 +14,7 @@ namespace TempConvert
             double tempReal = double.Parse(tempStr);
             if (type == "c" || type == "C")
             {
-                double tempConverted =tempReal * 1.8 + 32;
+                double tempConverted = tempReal * 1.8 + 32;
                 Console.Write(tempReal + "C is " + tempConverted.ToString("0.0") + "F.");
             }
             else if (type == "f" || type == "F")
