@@ -11,7 +11,11 @@
         */
         public string WithoutEnd2(string str)
         {
-            return null;
+            if (str.Length < 3)
+            {
+                return "";
+            }
+            return str.Substring(1, str.Length - 2);
         }
     }
 }

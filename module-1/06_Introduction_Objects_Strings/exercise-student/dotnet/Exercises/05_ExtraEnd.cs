@@ -11,7 +11,7 @@
         */
         public string ExtraEnd(string str)
         {
-            return null;
+            return str.Substring(str.Length - 2) + str.Substring(str.Length - 2) + str.Substring(str.Length - 2);
         }
     }
 }
