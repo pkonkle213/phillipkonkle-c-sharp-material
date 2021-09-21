@@ -67,6 +67,7 @@ namespace StringsDemo
 
             // 6. Where does the string "lace" show up in name?
             // Output: 8
+            // "Ada Lovelace"
             int index = -1; // -1 is we didn't find it
             for (int i = 0; i < name.Length - 3; i++) // "abcdefg" FOO
             {
@@ -125,6 +126,18 @@ namespace StringsDemo
             {
                 Console.WriteLine("That's all folks!");
             }
+
+            int numTimesToRepeat = 3;
+            string result = "";
+            string word = "Morning";
+
+            for (int i = 0; i < numTimesToRepeat; i++)
+            {
+                result += word;
+            }
+            Console.WriteLine(result);
+
+
 
             Console.ReadLine();
         }
