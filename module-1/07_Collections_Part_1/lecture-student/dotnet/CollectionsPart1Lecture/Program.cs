@@ -20,9 +20,15 @@ namespace CollectionsPart1Lecture
 
 
 			Console.WriteLine("####################");
-			Console.WriteLine("Lists allow duplicates");
+			Console.WriteLine("Lists allow indexing");
 			Console.WriteLine("####################");
 
+
+
+			Console.WriteLine("####################");
+			Console.WriteLine("       FOREACH");
+			Console.WriteLine("####################");
+			Console.WriteLine();
 
 
 			Console.WriteLine("####################");
@@ -39,6 +45,12 @@ namespace CollectionsPart1Lecture
 
 			Console.WriteLine("####################");
 			Console.WriteLine("Create a list using {} syntax");
+			Console.WriteLine("####################");
+
+
+
+			Console.WriteLine("####################");
+			Console.WriteLine("Lists allow duplicates");
 			Console.WriteLine("####################");
 
 
@@ -78,10 +90,19 @@ namespace CollectionsPart1Lecture
 			Console.WriteLine("####################");
 
 
+			// Quick Poll Goes here...
+
 
 			Console.WriteLine("####################");
 			Console.WriteLine("Finding the smallest number in a list");
 			Console.WriteLine("####################");
+
+
+
+			Console.WriteLine("####################");
+			Console.WriteLine("Copying and filtering to another list");
+			Console.WriteLine("####################");
+
 
 
 
@@ -91,10 +112,12 @@ namespace CollectionsPart1Lecture
 
 
 
-			Console.WriteLine("####################");
-			Console.WriteLine("       FOREACH");
-			Console.WriteLine("####################");
-			Console.WriteLine();
+
+			Console.WriteLine("####  BREAKOUT #####");
+			Console.WriteLine("Create a list of strings, then use that list to generate " +
+							  "a list of integers containing the length of each string");
+			Console.WriteLine("#### /BREAKOUT #####");
+
 
 
 
