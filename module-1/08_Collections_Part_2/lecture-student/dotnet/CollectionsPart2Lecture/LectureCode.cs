@@ -78,13 +78,5 @@ namespace CollectionsPart2Lecture
 		{
 
 		}
-
-		private bool IsPasswordValid(string username, string password)
-		{
-			// NOTE: This is a horrible example of password security, but is a good example for teaching dictionaries
-			// We will revisit password security in module 2.
-
-			return false;
-		}
 	}
 }
