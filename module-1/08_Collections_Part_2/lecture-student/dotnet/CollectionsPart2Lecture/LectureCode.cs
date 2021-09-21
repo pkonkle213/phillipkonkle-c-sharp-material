@@ -11,7 +11,7 @@ namespace CollectionsPart2Lecture
 			// ----------------------------------------
 			// HashSets
 			// ----------------------------------------
-			HashSetExamples();
+			HashSetEmailListExamples();
 
 			// ----------------------------------------
 			// Dictionaries
@@ -34,16 +34,18 @@ namespace CollectionsPart2Lecture
 			UsernamePasswordExample();
 		}
 
-		private void DictionaryItemPricesExample()
+
+		private void HashSetEmailListExamples()
 		{
-			// Declaring and initializing a Dictionary (one-line version)
+			// Declaring a hash set for tracking E-Mail addresses
 
-			// Iterate through the keys and key-value pairs in the Dictionary (You will RARELY do this)
-		}
+			// Adding to hash sets
 
-		private void DictionaryCoinFlipExample()
-		{
+			// Removing from hash sets
 
+			// Checking if something is in a hash set
+
+			// Looping over a hash set (you won't do this too much)
 		}
 
 		private void DictionarySportsJerseyExample()
@@ -61,17 +63,28 @@ namespace CollectionsPart2Lecture
 			// Remove an element from the Dictionary
 		}
 
-		private void HashSetExamples()
+
+		private void DictionaryCoinFlipExample()
 		{
-			// Declaring a hash set for tracking E-Mail addresses
+			Random random = new Random();
 
-			// Adding to hash sets
+			const int timesToFlip = 10;
 
-			// Removing from hash sets
+			List<bool> coinFlipsThatAreHeads = new List<bool>();
 
-			// Checking if something is in a hash set
+			for (int i = 0; i < timesToFlip; i++)
+            {
+				bool isHeads = (random.Next(0, 2) == 0); // Will be either 0 or 1
 
-			// Looping over a hash set (you won't do this too much)
+				coinFlipsThatAreHeads.Add(isHeads);
+            }
+		}
+
+		private void DictionaryItemPricesExample()
+		{
+			// Declaring and initializing a Dictionary (one-line version)
+
+			// Iterate through the keys and key-value pairs in the Dictionary (You will RARELY do this)
 		}
 
 		private void UsernamePasswordExample()
