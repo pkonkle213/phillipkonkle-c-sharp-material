@@ -15,7 +15,19 @@ namespace Exercises
          */
         public Dictionary<string, bool> WordMultiple(string[] words)
         {
-            return null;
+            Dictionary<string, bool> usedLetters = new Dictionary<string, bool>();
+            foreach(string letter in words)
+            {
+                if (usedLetters.ContainsKey(letter))
+                {
+                    usedLetters[letter] = true;
+                }
+                else
+                {
+                    usedLetters[letter] = false;
+                }
+            }
+            return usedLetters;
         }
     }
 }

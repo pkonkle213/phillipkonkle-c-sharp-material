@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 
 namespace Exercises
 {
@@ -17,7 +18,24 @@ namespace Exercises
         public Dictionary<string, int> ConsolidateInventory(Dictionary<string, int> mainWarehouse,
                                                             Dictionary<string, int> remoteWarehouse)
         {
-            return null;
+            Dictionary<string, int> combinedWarehouse = new Dictionary<string, int>();
+            foreach(KeyValuePair<string, int> pair in mainWarehouse)
+            {
+                combinedWarehouse[pair.Key] = pair.Value;
+            }
+            
+            foreach(KeyValuePair<string, int> pair in remoteWarehouse)
+            {
+                if (combinedWarehouse.ContainsKey(pair.Key))
+                {
+                    combinedWarehouse[pair.Key] += pair.Value;
+                }
+                else
+                {
+                    combinedWarehouse[pair.Key] = pair.Value;
+                }
+            }
+            return combinedWarehouse;
         }
     }
 }

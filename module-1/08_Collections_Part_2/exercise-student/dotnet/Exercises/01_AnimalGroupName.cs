@@ -34,7 +34,30 @@ namespace Exercises
          */
         public string AnimalGroupName(string animalName)
         {
-            return null;
+            Dictionary<string, string> pluralAnimals = new Dictionary<string, string>()
+            {
+                {"RHINO","Crash" },
+                {"GIRAFFE","Tower" },
+                {"ELEPHANT","Herd" },
+                {"LION","Pride" },
+                {"CROW","Murder" },
+                {"PIGEON","Kit" },
+                {"Flamingo","Pat" },
+                {"DEER","Herd" },
+                {"DOG","Pack" },
+                {"CROCODILE","Float" }
+            };
+
+            if (animalName != null)
+            {
+                animalName = animalName.ToUpper();
+
+                if (pluralAnimals.ContainsKey(animalName))
+                {
+                    return pluralAnimals[animalName];
+                }
+            }
+            return "unknown";
         }
     }
 }

@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Exercises
 {
@@ -17,7 +18,27 @@ namespace Exercises
          */
         public Dictionary<int, int> IntCount(int[] ints)
         {
-            return null;
+            Dictionary<int, int> intCount = new Dictionary<int, int>();
+            if (ints == null)
+            {
+                return null;
+            }
+
+            List<int> intList = ints.ToList();
+            intList.Sort();
+
+            foreach (int num in intList)
+            {
+                if (intCount.ContainsKey(num))
+                {
+                    intCount[num] += 1;
+                }
+                else
+                {
+                    intCount[num] = 1;
+                }
+            }
+            return intCount;
         }
     }
 }
