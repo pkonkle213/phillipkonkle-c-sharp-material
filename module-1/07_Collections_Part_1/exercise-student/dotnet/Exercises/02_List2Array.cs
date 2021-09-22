@@ -12,7 +12,8 @@ namespace Exercises
         */
         public string[] List2Array(List<string> stringList)
         {
-            return null;
+            string[] stringArray = stringList.ToArray();
+            return stringArray;
         }
     }
 }

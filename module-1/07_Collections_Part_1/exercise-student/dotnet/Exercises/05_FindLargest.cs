@@ -12,7 +12,20 @@ namespace Exercises
         */
         public int FindLargest(List<int> integerList)
         {
-            return -1;
+            /* int largestInt = integerList[0];
+            foreach (int number in integerList)
+            {
+                if (number > largestInt)
+                {
+                    largestInt = number;
+                }
+            }
+            return largestInt;
+            */
+
+            integerList.Sort();
+            return integerList[integerList.Count - 1];
+
         }
     }
 }

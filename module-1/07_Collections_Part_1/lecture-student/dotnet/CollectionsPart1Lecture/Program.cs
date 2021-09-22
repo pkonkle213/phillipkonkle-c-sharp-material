@@ -11,7 +11,8 @@ namespace CollectionsPart1Lecture
 			Console.WriteLine("       LISTS");
 			Console.WriteLine("####################");
 
-
+			//very similar to string[] staffArray;
+			List<string> staff = new List<string>();
 
 			Console.WriteLine("####################");
 			Console.WriteLine("Lists are ordered");
@@ -115,9 +116,18 @@ namespace CollectionsPart1Lecture
 
 			Console.WriteLine("####  BREAKOUT #####");
 			Console.WriteLine("Create a list of strings, then use that list to generate " +
-							  "a list of integers containing the length of each string");
+							  "a list of integers containing the first and last letter of the string");
 			Console.WriteLine("#### /BREAKOUT #####");
+			//Extra challenge - sort alphabetically
 
+			List<string> listForThis = new List<string> {"Yellow", "Red", "Blue", "Brown" };
+			List<string> newList = new List<string>();
+
+            foreach (string item in listForThis)
+            {
+				newList.Add(item.Substring(0, 1) + item.Substring(item.Length - 1, 1));
+            }
+			newList.Sort();
 
 
 

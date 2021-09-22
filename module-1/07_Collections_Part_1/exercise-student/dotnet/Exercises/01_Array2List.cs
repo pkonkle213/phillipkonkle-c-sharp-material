@@ -1,4 +1,5 @@
 ﻿using System.Collections.Generic;
+using System.Linq;
 
 namespace Exercises
 {
@@ -12,7 +13,8 @@ namespace Exercises
         */
         public List<string> Array2List(string[] stringArray)
         {
-            return null;
+            List<string> stringList = stringArray.ToList();
+            return stringList;
         }
     }
 }
