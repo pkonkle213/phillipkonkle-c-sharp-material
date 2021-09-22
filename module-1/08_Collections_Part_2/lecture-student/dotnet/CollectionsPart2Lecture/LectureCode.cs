@@ -66,11 +66,11 @@ namespace CollectionsPart2Lecture
 
 		private void DictionaryCoinFlipExample()
 		{
+			// Flip a coin some number of times
 			Random random = new Random();
+			List<bool> coinFlipsThatAreHeads = new List<bool>();
 
 			const int timesToFlip = 10;
-
-			List<bool> coinFlipsThatAreHeads = new List<bool>();
 
 			for (int i = 0; i < timesToFlip; i++)
             {
@@ -78,6 +78,9 @@ namespace CollectionsPart2Lecture
 
 				coinFlipsThatAreHeads.Add(isHeads);
             }
+
+			// Track the number of coin flips into a dictionary
+
 		}
 
 		private void DictionaryItemPricesExample()
