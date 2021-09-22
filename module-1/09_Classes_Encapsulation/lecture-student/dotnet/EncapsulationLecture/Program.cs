@@ -11,6 +11,9 @@ namespace EncapsulationLecture
 
             Console.WriteLine("Then we do other things");
             Console.WriteLine();
+
+            Console.WriteLine("Hey Matt, don't forget to talk about static and overloading");
+            Console.WriteLine();
         }
     }
 }
