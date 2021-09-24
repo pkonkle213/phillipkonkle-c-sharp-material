@@ -36,6 +36,7 @@ namespace Exercises
                 }
                 last2Count[word] = countTimes;
             }
+
             return last2Count;
         }
     }

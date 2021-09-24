@@ -25,17 +25,17 @@ namespace Exercises
                 return null;
             }
 
-                foreach (string word in words)
+            foreach (string word in words)
+            {
+                if (phraseCount.ContainsKey(word))
                 {
-                    if (phraseCount.ContainsKey(word))
-                    {
-                        phraseCount[word] += 1;
-                    }
-                    else
-                    {
-                        phraseCount[word] = 1;
-                    }
+                    phraseCount[word] += 1;
                 }
+                else
+                {
+                    phraseCount[word] = 1;
+                }
+            }
 
             return phraseCount;
         }
