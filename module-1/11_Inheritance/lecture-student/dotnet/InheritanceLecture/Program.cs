@@ -11,18 +11,19 @@ namespace InheritanceLecture
             Console.WriteLine("Starting a general auction");
             Console.WriteLine("-----------------");
 
-            Auction generalAuction = new Auction();
+            Auction generalAuction = new Auction("Up");
 
             generalAuction.PlaceBid(new Bid("Matt", 1));
-            generalAuction.PlaceBid(new Bid("John", 13));
-            generalAuction.PlaceBid(new Bid("Rick Astley", 23));
+            generalAuction.PlaceBid(new Bid("Rick Astley", 10));
+            generalAuction.PlaceBid(new Bid("Kevin", 13));
             //....
             //....
             // This might go on until the auction runs out of time or hits a max # of bids
+            generalAuction.EndAuction();
 
-            // Create a new Reserve auction (buyer can reject small bids)
+            // Create a new ReserveAuction (buyer can reject small bids)
 
-            // Create a new Buyout auction (big bids can end the auction)
+            // Create a new BuyoutAuction (big bids can end the auction)
 
             Console.ReadLine();
         }

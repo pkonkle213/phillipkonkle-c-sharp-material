@@ -33,7 +33,7 @@ namespace InheritanceLecture.Auctioneering
         /// </summary>
         public void DisplayDetails()
         {
-            Console.WriteLine(this.Bidder + " with " + this.BidAmount.ToString("C")); // ToString("C") formats as a currency. E.G. $24
+            Console.WriteLine($"{this.Bidder} with {this.BidAmount.ToString("C")}");
         }
     }
 }

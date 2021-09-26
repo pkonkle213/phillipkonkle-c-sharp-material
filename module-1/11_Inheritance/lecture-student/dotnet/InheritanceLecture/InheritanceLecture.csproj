@@ -6,8 +6,13 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="Stubs\**" />
+    <EmbeddedResource Remove="Stubs\**" />
+    <None Remove="Stubs\**" />
+  </ItemGroup>
+
+  <ItemGroup>
     <Folder Include="Auctioneering\" />
-    <Folder Include="Stubs\" />
   </ItemGroup>
 
 </Project>

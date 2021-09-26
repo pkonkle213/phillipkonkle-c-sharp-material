@@ -14,9 +14,29 @@ namespace InheritanceLecture.Auctioneering
         private List<Bid> allBids = new List<Bid>();
 
         /// <summary>
+        /// Creates a new instance of an Auction with the item being a mystery item
+        /// </summary>
+        public Auction()
+        {
+            this.AuctionedItem = "Mystery Item";
+        }
+
+        /// <summary>
+        /// Creates a new instance of an Auction with the item name specified
+        /// </summary>
+        /// <param name="itemName">The name of the item being auctioned off</param>
+        public Auction(string itemName)
+        {
+            this.AuctionedItem = itemName;
+        }
+
+        public string AuctionedItem { get; }
+
+        /// <summary>
         /// Represents the current high bid.
         /// </summary>
         public Bid CurrentHighBid { get; private set; } = new Bid("Nobody", 0);
+
 
         /// <summary>
         /// Indicates if the auction has ended yet.
@@ -36,7 +56,7 @@ namespace InheritanceLecture.Auctioneering
         /// </summary>
         public void EndAuction()
         {
-            Console.WriteLine("The auction is over, the winner is " + this.CurrentHighBid.Bidder);
+            Console.WriteLine($"The auction is over on the {AuctionedItem}, the winner is {CurrentHighBid.Bidder}");
             this.HasEnded = true;
         }
 
@@ -48,7 +68,7 @@ namespace InheritanceLecture.Auctioneering
         public bool PlaceBid(Bid offeredBid)
         {
             // Make sure we don't allow bids after auctions are over
-            if (this.HasEnded)
+            if (HasEnded)
             {
                 Console.WriteLine("Cannot accept the bid. The auction has already ended");
                 return false;
