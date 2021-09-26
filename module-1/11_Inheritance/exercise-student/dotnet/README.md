@@ -75,6 +75,8 @@ A `CheckingAccount` "is-a" `BankAccount`, but it also has some additional rules:
 | Withdraw        | If the balance falls below $0.00 and is less than -$100.00, a $10.00 overdraft fee is also charged against the account.                                                                            |
 |        | Checking account can't be overdrawn by $100.00 or more. If a withdrawal request leaves the account $100 or more overdrawn, it fails and the balance remains the same.<br><br> For example, if the current balance is -$89.00, and the amount to withdraw is $10.00, the resulting balance would be -$99.00. The withdraw is permitted since the new balance is less than -$100.00. The $10.00 overdraft fee is then charge against the account, resulting in a final balance of -$109.00.<br><br>A withdraw of $11.00 in the same situation would fail because the new balance would be -$100.00 which is equal to ***but not less than*** the limit of -$100.00. |
 
+**Hint: The tests are picky on this one. I recommend you withdraw the amount (if possible) and *then* check for and apply the $10 fee**
+
 #### Step Three: Implement the `SavingsAccount` class
 
 A `SavingsAccount` "is-a" `BankAccount`, but it also has some additional rules:
@@ -84,6 +86,7 @@ A `SavingsAccount` "is-a" `BankAccount`, but it also has some additional rules:
 | Withdraw        | If the current balance is less than $150.00 when a withdrawal is made, an additional $2.00 service charge is withdrawn from the account. |
 |         | If a withdrawal is requested for more than the current balance, the withdrawal fails and balance remains the same. No fees are incurred. |
 
+**Hint: The tests are picky on this one. I recommend you withdraw the amount (if possible) and *then* check for and apply the $2 fee**
 
 _Sample usage_
 ``` csharp
@@ -93,6 +96,7 @@ BankAccount savingsAccount = new SavingsAccount("Bernice", "SAV:9876");
 decimal amountToDeposit = 100.00M;
 decimal newBalance = checkingAccount.Deposit(amountToDeposit);
 ```
+
 
 ---
 
