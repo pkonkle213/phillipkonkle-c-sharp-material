@@ -8,12 +8,12 @@ namespace Lecture.Farming
     /// </summary>
     public class FarmAnimal
     {       
-        public string Name { get; }
-
         public FarmAnimal(string name)
         {
             this.Name = name;
         }
+
+        public string Name { get; }
 
         public virtual string MakeSoundOnce()
         {
