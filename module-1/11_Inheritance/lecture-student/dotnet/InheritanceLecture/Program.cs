@@ -22,8 +22,24 @@ namespace InheritanceLecture
             generalAuction.EndAuction();
 
             // Create a new ReserveAuction (buyer can reject small bids)
+            Console.WriteLine("Starting new ReseveAuction");
+            ReserveAuction reserve = new ReserveAuction();
+            reserve.MinimumBid = 10000;
+            
+            reserve.PlaceBid(new Bid("Matt", 5));
+            reserve.PlaceBid(new Bid("Coach Steve", 10001));
+            
+            reserve.EndAuction();
 
             // Create a new BuyoutAuction (big bids can end the auction)
+            Console.WriteLine();
+            Console.WriteLine("Starting BuyoutAuction");
+            BuyoutAuction buyout = new BuyoutAucution("Dr. Pepper", 50);
+
+            buyout.PlaceBid(new Bid("Kevin", 1));
+            buyout.PlaceBid(new Bid("Rachelle", 2));
+            buyout.PlaceBid(new Bid("Matt", 1024)); ;
+            buyout.PlaceBid(new Bid("Kevin", 1025));
 
             Console.ReadLine();
         }

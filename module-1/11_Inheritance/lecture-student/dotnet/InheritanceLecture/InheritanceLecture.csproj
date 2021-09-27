@@ -11,8 +11,4 @@
     <None Remove="Stubs\**" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Auctioneering\" />
-  </ItemGroup>
-
 </Project>
