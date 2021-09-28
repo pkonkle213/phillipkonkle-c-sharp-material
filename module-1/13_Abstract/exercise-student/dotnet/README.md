@@ -60,6 +60,7 @@ Add a `ToString()` method that returns a `string` in the following format:
 ```
 Name (LengthxHeight) rectangle
 ```
+For example, a shape named "Bathroom" with a length of 4 and a height of 2 should generate a string like `"Bathroom (4x2) rectangle"`
 
 If you implemented the class correctly, the `RectangleWallTests` pass.
 
@@ -70,7 +71,7 @@ There are three places to uncomment code in `Program.cs`—look for `//uncomment
 `TriangleWall` extends `Wall` and adds two new properties, `Base` and `Height`, that are readonly. Add a constructor that looks like this:
 
 ``` csharp
-public TriangleWall(string name, string color, int @base, int height)
+public TriangleWall(string name, string color, int baseSize, int height)
 ```
 
 Implement `GetArea()` to return the `Base` multiplied by the `Height` and then divided by two.
