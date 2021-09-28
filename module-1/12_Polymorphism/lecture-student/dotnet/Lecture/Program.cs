@@ -4,9 +4,9 @@ using System.Collections.Generic;
 
 namespace Lecture
 {
-    class Program
+    public class Program
     {
-        static void Main()
+        public static void Main()
         {
             //
             // OLD MACDONALD
@@ -22,13 +22,19 @@ namespace Lecture
 
             // What about tractors?
 
+            SingAbout(animal);
+        }
+
+        private static void SingAbout(FarmAnimal animal)
+        {
+            string soundOnce = animal.MakeSoundOnce();
+            string soundTwice = animal.MakeSoundTwice();
+
             Console.WriteLine($"And on his farm there was a {animal.Name} ee ay ee ay oh");
-            Console.WriteLine($"With a {animal.MakeSoundTwice()} here and a {animal.MakeSoundTwice()} there");
-            Console.WriteLine($"Here a {animal.MakeSoundOnce()}, there a {animal.MakeSoundOnce()} everywhere a {animal.MakeSoundTwice()}");
+            Console.WriteLine($"With a {soundTwice} here and a {soundTwice} there");
+            Console.WriteLine($"Here a {soundOnce}, there a {soundOnce} everywhere a {soundTwice}");
             Console.WriteLine("Old Macdonald had a farm, ee ay ee ay oh");
             Console.WriteLine();
-
-            Console.ReadLine();
         }
     }
 }
