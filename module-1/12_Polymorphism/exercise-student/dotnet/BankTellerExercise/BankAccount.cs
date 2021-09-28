@@ -31,5 +31,12 @@
             Balance -= amountToWithdraw;
             return Balance;
         }
+
+        public virtual int TransferTo(BankAccount destinationAccount, int transferAmount)
+        {
+            // this.Balance -= transferAmount;
+            destinationAccount.Balance += transferAmount;
+            return destinationAccount.Balance;
+        }
     }
 }

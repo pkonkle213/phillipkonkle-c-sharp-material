@@ -15,14 +15,27 @@ namespace Lecture
 
             // Let's try singing about a Farm Animal
             FarmAnimal animal = new Horse();
+            Horse horse = (Horse)animal;
+            horse.Gallup();
+            //SingAbout(animal);
 
             // Can we swap out any animal in place here?
+            animal = new Turkey();
+
 
             // What about a few other animals?
+            List<FarmAnimal> farm = new List<FarmAnimal>();
+            farm.Add(horse);
+            farm.Add(new Turkey());
+            farm.Add(new Pterydactyl());
 
             // What about tractors?
+            //SingAbout(animal);
 
-            SingAbout(animal);
+            foreach (FarmAnimal thing in farm)
+            {
+                SingAbout(thing);
+            }
         }
 
         private static void SingAbout(FarmAnimal animal)
