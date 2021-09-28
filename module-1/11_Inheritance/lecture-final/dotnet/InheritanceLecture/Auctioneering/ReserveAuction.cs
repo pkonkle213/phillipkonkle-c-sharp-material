@@ -12,7 +12,7 @@ namespace InheritanceLecture.Auctioneering
 
         }
 
-        public ReserveAuction(string item) : base(item)
+        public ReserveAuction(string itemName) : base(itemName)
         {
 
         }

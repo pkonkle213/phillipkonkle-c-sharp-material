@@ -13,7 +13,7 @@ namespace InheritanceLecture.Auctioneering
         /// </summary>
         private List<Bid> allBids = new List<Bid>(); // field or class variable
 
-        /*
+        
         /// <summary>
         /// Creates a new instance of an Auction with the item being a mystery item
         /// </summary>
@@ -21,7 +21,7 @@ namespace InheritanceLecture.Auctioneering
         {
             this.AuctionedItem = "Mystery Item";
         }
-        */
+        
 
         /// <summary>
         /// Creates a new instance of an Auction with the item name specified
