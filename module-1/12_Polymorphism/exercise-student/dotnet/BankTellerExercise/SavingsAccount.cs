@@ -26,14 +26,5 @@ namespace BankTellerExercise
             }
             return Balance;
         }
-        public override int TransferTo(BankAccount destinationAccount, int transferAmount)
-        {
-            base.Withdraw(transferAmount);
-            if (Balance < 150)
-            {
-                base.Withdraw(2);
-            }
-            return base.TransferTo(destinationAccount, transferAmount);
-        }
     }
 }
