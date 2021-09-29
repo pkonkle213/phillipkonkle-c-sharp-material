@@ -4,7 +4,7 @@ using System.Text;
 
 namespace Lecture.Farming
 {
-    public class Pterodactyl : FarmAnimal
+    public sealed class Pterodactyl : FarmAnimal
     {
         public Pterodactyl() : base("PTERODACTYL")
         {

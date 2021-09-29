@@ -43,6 +43,8 @@ namespace Lecture
             farm.Add(john);
 
             // Let's add cats!
+            FarmAnimal cat = new Cat();
+            farm.Add(cat);
 
             foreach (ISingable thing in farm)
             {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 
 namespace Lecture.Farming
 {
-    public class Horse : FarmAnimal
+    public sealed class Horse : FarmAnimal
     {
         public Horse() : base("HORSE")
         {

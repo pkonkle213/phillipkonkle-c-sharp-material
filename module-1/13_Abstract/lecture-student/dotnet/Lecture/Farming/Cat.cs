@@ -4,18 +4,15 @@ using System.Text;
 
 namespace Lecture.Farming
 {
-    public sealed class Turkey : FarmAnimal
+    public class Cat : FarmAnimal
     {
-        public Turkey() : base("TURKEY")
+        public Cat() : base("CAT")
         {
-
         }
 
         public override string MakeSoundOnce()
         {
-            return "GOBBLE";
+            return "MEOW";
         }
-
-        public int NumFeathers { get; set; } = 42;
     }
 }

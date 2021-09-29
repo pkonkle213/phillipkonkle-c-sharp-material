@@ -6,7 +6,7 @@ namespace Lecture.Farming
     /// <summary>
     /// A base farm animal class.
     /// </summary>
-    public class FarmAnimal : ISingable
+    public abstract class FarmAnimal : ISingable
     {
         public FarmAnimal(string name)
         {
@@ -15,10 +15,18 @@ namespace Lecture.Farming
 
         public string Name { get; }
 
-        public virtual string MakeSoundOnce()
+        // An abstract method can only exist in an
+        // abstract class. This method will also 
+        // require an override
+
+        public abstract string MakeSoundOnce();
+        
+        /*
+         public virtual string MakeSoundOnce()
         {
             return "";
         }
+        */
 
         public string MakeSoundTwice()
         {
