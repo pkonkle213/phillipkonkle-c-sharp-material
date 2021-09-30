@@ -10,7 +10,7 @@ namespace BugTrackerConsoleApp
     public class BugManager
     {
         // Field or Class Variable
-        private List<Bug> bugs = new List<Bug>();
+        private readonly List<Bug> bugs = new List<Bug>();
 
         private int nextId = 1;
 
