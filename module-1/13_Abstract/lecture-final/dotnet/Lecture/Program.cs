@@ -44,7 +44,7 @@ namespace Lecture
 
             // Let's add cats!
             Cat cat = new Cat();
-            cat.Fly();
+            // cat.Fly();
             farm.Add(cat);
 
             foreach (ISingable thing in farm)
