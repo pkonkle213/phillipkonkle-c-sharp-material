@@ -44,7 +44,9 @@ public class SafeReflection
         if (type == null) return false;
         try
         {
-            ConstructorInfo constructorInfo = type.GetConstructor(parameters);
+            const BindingFlags flags = BindingFlags.Instance | BindingFlags.NonPublic | BindingFlags.Public;
+            ConstructorInfo constructorInfo = type.GetConstructor(flags, null, parameters, null);
+
             return constructorInfo != null;
         }
         catch (Exception)
