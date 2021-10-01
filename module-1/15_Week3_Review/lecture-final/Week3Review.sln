@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.31129.286
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugTrackerConsoleApp", "BugTrackerConsoleApp\BugTrackerConsoleApp.csproj", "{15CBBEC2-3E29-492F-9C96-C970CA69E518}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BugTrackerTests", "BugTrackerTests\BugTrackerTests.csproj", "{C841BC63-7C6C-4476-B424-B4F914E9C1E1}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{15CBBEC2-3E29-492F-9C96-C970CA69E518}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15CBBEC2-3E29-492F-9C96-C970CA69E518}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15CBBEC2-3E29-492F-9C96-C970CA69E518}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15CBBEC2-3E29-492F-9C96-C970CA69E518}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C841BC63-7C6C-4476-B424-B4F914E9C1E1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C841BC63-7C6C-4476-B424-B4F914E9C1E1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C841BC63-7C6C-4476-B424-B4F914E9C1E1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C841BC63-7C6C-4476-B424-B4F914E9C1E1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {7052A929-F94D-4739-BCB3-3E19B134EF77}
+	EndGlobalSection
+EndGlobal
