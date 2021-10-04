@@ -8,6 +8,10 @@ namespace FileInputLecture
     {
         public void PerformDivision(int numerator, int divisor)
         {
+            if (divisor == 0)
+            {
+                throw new InvalidOperationException("Divide by zero is a good Magic card, but not good in general math");
+            }
             int result = numerator / divisor;
 
             Console.WriteLine($"{numerator} / {divisor} = {result}");  // This line will not execute because an Exception will be thrown inside the for loop
@@ -19,6 +23,10 @@ namespace FileInputLecture
             const double RoomRate = 85;
 
             // TODO: Throw exceptions if the nights or number of guests doesn't make sense
+            if (nights <= 0)
+            {
+                throw new ArgumentOutOfRangeException("nights", nights, "Nights must be great than 0");
+            }
 
             int numberOfExtraGuests = 0;
             if (numberOfGuests > 4)

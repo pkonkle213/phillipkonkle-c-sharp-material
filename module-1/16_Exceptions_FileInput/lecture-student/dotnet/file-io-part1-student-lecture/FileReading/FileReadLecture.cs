@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.IO;
+using System.IO; //Note this, this is super important
 using System.Text;
 
 namespace FileInputLecture.FileReading
@@ -10,6 +10,7 @@ namespace FileInputLecture.FileReading
         public void CensorAliceAndWonderland()
         {
             // Let's take a look at DirectoryInfo and Environment
+            
 
             // Let's take a look at Path
 

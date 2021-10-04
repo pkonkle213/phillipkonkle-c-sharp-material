@@ -23,7 +23,7 @@ namespace FileInputLecture
             Console.WriteLine(cities[0]);
             Console.WriteLine(cities[1]);
             Console.WriteLine(cities[2]);
-            Console.WriteLine(cities[3]);  // This statement will throw an IndexOutOfRangeException
+            //Console.WriteLine(cities[3]);  // This statement will throw an IndexOutOfRangeException
             Console.WriteLine("are all in Ohio."); // This line won't execute because the previous statement throws an Exception
 
             Console.WriteLine();
@@ -41,9 +41,19 @@ namespace FileInputLecture
             Console.WriteLine("How many hours did you work this week? >>> ");
             string hoursString = Console.ReadLine();
 
-            int hoursWorked = int.Parse(hoursString);
-            int overtimeHours = hoursWorked - 40;
-            Console.WriteLine($"You worked {overtimeHours} hours of overtime.");
+            int hoursWorked = 0;
+            bool isValidHours = false;
+            
+            try
+            {
+                hoursWorked = int.Parse(hoursString);
+                int overtimeHours = hoursWorked - 40;
+                Console.WriteLine($"You worked {overtimeHours} hours of overtime.");
+            }
+            catch (FormatException ex)
+            {
+                Console.WriteLine("idiot, I didn't ask for that!" + ex.Message);
+            }
 
             Console.WriteLine();
         }
@@ -60,7 +70,19 @@ namespace FileInputLecture
             Console.ReadLine();
 
             ExceptionExamples examples = new ExceptionExamples();
+
+            try
+            {
             examples.PerformDivision(42, 0); // Will cause a DivisionByZeroException inside of the PerformDivision method
+            }
+            catch (InvalidOperationException error)
+            {
+                Console.WriteLine("An error occured: " + error.Message);
+            }
+            catch (DivideByZeroException error)
+            {
+                Console.WriteLine("Why did you just try to blow up the world? Rude.");
+            }
 
             Console.WriteLine();
         }
