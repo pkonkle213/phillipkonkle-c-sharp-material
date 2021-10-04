@@ -40,7 +40,7 @@ namespace Lecture.Aids
             string extension = Path.GetExtension(path);
 
             // Change the extension in the path variable to .cs
-            Path.ChangeExtension(path, ".cs");
+            string newFilePath = Path.ChangeExtension(path, ".cs");
         }
 
 
