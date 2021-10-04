@@ -17,83 +17,9 @@ Your code will be evaluated based on the following criteria:
 * The expected results are sent to a file.
 * Paths to files aren't hard coded—that is, the code shouldn't need to be changed to run the application for a different file.
 * The unit tests pass as expected.
-  * Note: Tests are provided for the FindAndReplace and FizzWriter exercises only.
+  * Note: Tests are provided for the FizzWriter exercise only.
 
-## Part One: Create a find and replace program
-
-In this exercise, you'll write a program that finds all occurrences of a user-specified word in a text file and replaces it with another user-specified word. You'll write the text with the replaced word to a different text file.
-
-The program must prompt the user for the following values:
-
-* The search word
-* The word to replace the search word with
-* The source file
-  * *This must be an existing file. If the user enters an invalid source file, the program indicates this to the user and exits.*
-* The destination file
-  * *The program creates a copy of the source file with the requested replacements at this location. If the file already exists, it must be overwritten. If the user enters an invalid destination file, the program indicates this to the user and exits.*
-
-> Note: This is a case-sensitive search. If your search word is `Bacon`, then `bacon` shouldn't be replaced.
-
-Here's an example of what your application could look like:
-
-```
-What is the search word?
-bacon
-What is the replacement word?
-ham
-What is the source file?
-[path-to-source-file]
-What is the destination file?
-[path-to-destination-file]
-```
-
-### Examples
-
-The examples below demonstrate the requirements of this exercise. The tests for this exercise test each scenario below.
-
-The following examples use a hypothetical text file with the following contents:
-
-```
-apple Bacon coconut bacon
-bread bacon Apple cherry
-```
-
-#### Multiple occurrences
-
-For the search word `bacon` and the replacement word `ham`, the contents of the destination file would be:
-
-```
-apple Bacon coconut ham
-bread ham Apple cherry
-```
-
-Remember that the search is case-sensitive, which is why the capitalized `Bacon` isn't replaced.
-
-#### Single occurrence
-
-For the search word `Apple` and the replacement word `carrot`, the contents of the destination file would be:
-
-```
-apple Bacon coconut bacon
-bread bacon carrot cherry
-```
-
-Remember that the search is case-sensitive, which is why only the capitalized `Apple` is replaced.
-
-#### No occurrences
-
-For the search word `honey` and the replacement word `ketchup`, the contents of the destination file would be the same as the source file:
-
-```
-apple Bacon coconut bacon
-bread bacon Apple cherry
-```
-
-### Tests
-
-The tests for this exercise are in the `FileIOPart2.Tests` project under `FindAndReplaceTests`. All tests must pass to complete this exercise.
-
-## Part Two: Create a FizzWriter program
+## Create a FizzWriter program
 
 Create a program that writes out the result of FizzBuzz (1 to 300) to a file.
 

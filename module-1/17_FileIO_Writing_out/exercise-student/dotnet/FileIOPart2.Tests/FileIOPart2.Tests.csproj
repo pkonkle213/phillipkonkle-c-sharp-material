@@ -7,6 +7,10 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Compile Remove="FindAndReplaceTests.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
     <None Remove="bacon.txt" />
     <None Remove="fizzbuzz_expected.txt" />
   </ItemGroup>
@@ -19,7 +23,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\FindAndReplace\FindAndReplace.csproj" />
     <ProjectReference Include="..\FizzWriter\FizzWriter.csproj" />
   </ItemGroup>
 

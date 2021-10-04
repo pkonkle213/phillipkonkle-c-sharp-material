@@ -7,8 +7,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileSplitter", "FileSplitte
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FizzWriter", "FizzWriter\FizzWriter.csproj", "{DBAC6357-FCF1-41C7-A6AB-44AE1C9C1C1B}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FindAndReplace", "FindAndReplace\FindAndReplace.csproj", "{B78D4B61-4A80-431B-B71E-6A2E83C1261A}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FileIOPart2.Tests", "FileIOPart2.Tests\FileIOPart2.Tests.csproj", "{A3F316D7-C4C5-4517-BC61-76DFEFCABDE1}"
 EndProject
 Global
@@ -25,10 +23,6 @@ Global
 		{DBAC6357-FCF1-41C7-A6AB-44AE1C9C1C1B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{DBAC6357-FCF1-41C7-A6AB-44AE1C9C1C1B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{DBAC6357-FCF1-41C7-A6AB-44AE1C9C1C1B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{B78D4B61-4A80-431B-B71E-6A2E83C1261A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B78D4B61-4A80-431B-B71E-6A2E83C1261A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B78D4B61-4A80-431B-B71E-6A2E83C1261A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B78D4B61-4A80-431B-B71E-6A2E83C1261A}.Release|Any CPU.Build.0 = Release|Any CPU
 		{A3F316D7-C4C5-4517-BC61-76DFEFCABDE1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{A3F316D7-C4C5-4517-BC61-76DFEFCABDE1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A3F316D7-C4C5-4517-BC61-76DFEFCABDE1}.Release|Any CPU.ActiveCfg = Release|Any CPU
