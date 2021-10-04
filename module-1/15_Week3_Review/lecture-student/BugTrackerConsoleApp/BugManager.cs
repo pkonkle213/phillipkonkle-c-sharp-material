@@ -14,6 +14,16 @@ namespace BugTrackerConsoleApp
 
         private int nextId = 1;
 
+        public BugManager() : base()
+        {
+
+        }
+
+        public void LoadBugs()
+        {
+
+        }
+
         /// <summary>
         /// Adds a new bug
         /// </summary>
