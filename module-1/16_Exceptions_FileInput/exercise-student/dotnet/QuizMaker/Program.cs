@@ -10,6 +10,7 @@ namespace QuizMaker
             //1. Ask the user for the file path
             Console.WriteLine("Enter the fully qualified name of the file to read in for quiz questions");
             string path = Console.ReadLine();
+            int answer = 1;
 
             using (StreamReader reader = new StreamReader(path))
             {
@@ -17,15 +18,16 @@ namespace QuizMaker
                 int symbol = quiz1.IndexOf("|");
                 string question = quiz1.Substring(0, symbol);
                 string nextOption = quiz1.Substring(symbol + 1);
+                int correctAnswer;
 
                 Console.WriteLine(question);
-                int answer = 1;
                 while (nextOption.Contains("|"))
                 {
                     symbol = nextOption.IndexOf("|");
                     if (nextOption[symbol - 1] == '*')
                     {
-                        Console.WriteLine(answer + ". " + nextOption.Substring(0, symbol-1));
+                        Console.WriteLine(answer + ". " + nextOption.Substring(0, symbol - 1));
+                        correctAnswer = answer;
                     }
                     else
                     {
@@ -37,6 +39,19 @@ namespace QuizMaker
                 Console.WriteLine(answer + ". " + nextOption);
             }
 
+            Console.WriteLine();
+            Console.Write("Your answer: ");
+            string playerAnswerString = Console.ReadLine();
+            int playerAnswer = int.Parse(playerAnswerString);
+
+            if (playerAnswer == correctAnswer)
+            {
+                Console.WriteLine("RIGHT!");
+            }
+            else
+            {
+                Console.WriteLine("WRONG!");
+            }
         }
     }
 }
