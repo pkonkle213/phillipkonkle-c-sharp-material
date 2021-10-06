@@ -25,10 +25,10 @@ Create a program that writes out the result of FizzBuzz (1 to 300) to a file.
 
 > Note: this version of FizzBuzz has additional requirements.
 
-* If the number is divisible by 3, or contains a 3, print `Fizz`.
-* If the number is divisible by 5, or contains a 5, print `Buzz`.
-* If the number is divisible by 3 and 5, print `FizzBuzz`.
-* Otherwise, print the number.
+1) If the number is divisible by 3 and 5, print `FizzBuzz`.
+2) If the number is divisible by 5, or contains a 5, print `Buzz`.
+3) If the number is divisible by 3, or contains a 3, print `Fizz`.
+4) Otherwise, print the number.
 
 The program must prompt the user for the following values:
 
