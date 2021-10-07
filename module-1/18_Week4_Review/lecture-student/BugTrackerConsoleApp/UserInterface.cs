@@ -11,6 +11,7 @@ namespace BugTrackerConsoleApp
     public class UserInterface
     {
         private readonly BugManager bugs = new BugManager();
+        private BugFileManager fileManager;
 
         /// <summary>
         /// Lists main menu options for the user.
@@ -18,6 +19,7 @@ namespace BugTrackerConsoleApp
         public void ShowMainMenu()
         {
             // LOAD BUGS HERE
+            fileManager.LoadBugs();
 
             bool shouldQuit = false;
 
