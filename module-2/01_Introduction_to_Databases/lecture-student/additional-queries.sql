@@ -8,6 +8,7 @@
 
 -- LIKE
 -- The name, continent, and head of state of all countries whose form of government is a monarchy
+SELECT * FROM country WHERE governmentform LIKE '%monarch%';
 
 -- BREAKOUT PRACTICE
 -- The name and population of all cities in the USA with a population of greater than 1 million people
