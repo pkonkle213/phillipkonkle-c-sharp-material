@@ -136,7 +136,12 @@ FROM
 WHERE
 	EXISTS (SELECT * FROM payment p WHERE p.rental_id = r.rental_id AND p.payment_date >= '1/1/2008')
 
-SELECT	r.*FROM	rental rWHERE	EXISTS (SELECT * FROM payment p WHERE p.rental_id = r.rental_id AND p.payment_date >='1/1/2008')
+SELECT
+	r.*
+FROM
+	rental r
+WHERE
+	EXISTS (SELECT * FROM payment p WHERE p.rental_id = r.rental_id AND p.payment_date >='1/1/2008')
 
 -- Find all rentals items that have NO payments for them after 2007
 SELECT
