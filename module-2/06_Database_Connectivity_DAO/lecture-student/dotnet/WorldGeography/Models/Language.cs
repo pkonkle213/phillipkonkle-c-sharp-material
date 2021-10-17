@@ -9,7 +9,9 @@
 
         public override string ToString()
         {
-            return Name.PadRight(30) + CountryCode.PadRight(5) + (IsOfficial ? "Official" : "Unofficial").PadRight(15) + (Percentage/100.00).ToString("P").PadRight(5);
+            string official = (IsOfficial ? "Official" : "Unofficial");
+
+            return $"{Name,-30}{CountryCode,-5}{official,-15}{Percentage / 100.00,-5:P}"; // :P is percent formatting
         }
     }
 }

@@ -19,7 +19,8 @@
 
         public override string ToString()
         {
-            return Code.PadRight(5) + Name.PadRight(20) + Continent.PadRight(30) + SurfaceArea.ToString("N2").PadRight(10) + Population.ToString("N0").PadRight(15) + GovernmentForm.PadRight(30);
+            // -5's etc. are PadRight(5) calls. :N0, :N2 are ToString("N0") and ToString("N2") calls
+            return $"{Code,-5}{Name,-20}{Continent,-30}{SurfaceArea,-10:N2}{Population,-15:N0}{GovernmentForm,-30}";
         }
     }
 }

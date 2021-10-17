@@ -8,18 +8,18 @@ namespace WorldGeography
         {
             string userInput;
             int intValue;
-            int numberOfAttempts = 0;
+            bool isFirstAttempt = true;
 
             do
             {
-                if (numberOfAttempts > 0)
+                if (!isFirstAttempt)
                 {
                     Console.WriteLine("Invalid input format. Please try again");
                 }
 
                 Console.Write(message + " ");
                 userInput = Console.ReadLine();
-                numberOfAttempts++;
+                isFirstAttempt = false;
             }
             while (!int.TryParse(userInput, out intValue));
 
@@ -30,18 +30,18 @@ namespace WorldGeography
         {
             string userInput;
             double doubleValue;
-            int numberOfAttempts = 0;
+            bool isFirstAttempt = true;
 
             do
             {
-                if (numberOfAttempts > 0)
+                if (!isFirstAttempt)
                 {
                     Console.WriteLine("Invalid input format. Please try again");
-                }
+                } 
 
                 Console.Write(message + " ");
                 userInput = Console.ReadLine();
-                numberOfAttempts++;
+                isFirstAttempt = false;
             }
             while (!double.TryParse(userInput, out doubleValue));
 
@@ -52,18 +52,18 @@ namespace WorldGeography
         {
             string userInput;
             bool boolValue;
-            int numberOfAttempts = 0;
+            bool isFirstAttempt = true;
 
             do
             {
-                if (numberOfAttempts > 0)
+                if (!isFirstAttempt)
                 {
                     Console.WriteLine("Invalid input format. Please try again");
                 }
 
                 Console.Write(message + " ");
                 userInput = Console.ReadLine();
-                numberOfAttempts++;
+                isFirstAttempt = false;
             }
             while (!bool.TryParse(userInput, out boolValue));
 
@@ -73,18 +73,18 @@ namespace WorldGeography
         public static string GetString(string message)
         {
             string userInput;
-            int numberOfAttempts = 0;
+            bool isFirstAttempt = true;
 
             do
             {
-                if (numberOfAttempts > 0)
+                if (!isFirstAttempt)
                 {
                     Console.WriteLine("Invalid input format. Please try again");
                 }
 
                 Console.Write(message + " ");
                 userInput = Console.ReadLine();
-                numberOfAttempts++;
+                isFirstAttempt = false;
             }
             while (string.IsNullOrEmpty(userInput));
 

@@ -8,27 +8,24 @@ namespace WorldGeography
 {
     public class WorldGeographyCLI
     {
-        private const string Command_GetCountries = "1";
-        private const string Command_CountriesInNorthAmerica = "2";
-        private const string Command_CitiesByCountryCode = "3";
-        private const string Command_LanguagesByCountryCode = "4";
-        private const string Command_AddNewLanguage = "5";
-        private const string Command_RemoveLanguage = "6";
-        private const string Command_AddCity = "7";
-        private const string Command_Quit = "q";
-
         private readonly ICityDAO cityDAO;
         private readonly ICountryDAO countryDAO;
         private readonly ILanguageDAO languageDAO;
 
         public WorldGeographyCLI(ICityDAO cityDAO, ICountryDAO countryDAO, ILanguageDAO languageDAO)
         {
+            // Validate parameters
+            if (cityDAO == null) throw new ArgumentNullException("cityDAO");
+            if (countryDAO == null) throw new ArgumentNullException("countryDAO");
+            if (languageDAO == null) throw new ArgumentNullException("languageDAO");
+
+            // Set fields
             this.cityDAO = cityDAO;
             this.languageDAO = languageDAO;
             this.countryDAO = countryDAO;
         }
 
-        public void RunCLI()
+        public void Run()
         {
             PrintHeader();
             PrintMenu();
@@ -41,39 +38,39 @@ namespace WorldGeography
 
                 switch (command.ToLower())
                 {
-                    case Command_GetCountries:
+                    case "1": // Get all countries
                         GetCountries();
                         break;
 
-                    case Command_CountriesInNorthAmerica:
+                    case "2": // Get all countries in North America
                         GetCountriesInNorthAmerica();
                         break;
 
-                    case Command_CitiesByCountryCode:
+                    case "3": // Get all cities by their country code
                         GetCitiesByCountryCode();
                         break;
 
-                    case Command_LanguagesByCountryCode:
+                    case "4": // Get all languages for a given country
                         GetLanguagesForCountry();
                         break;
 
-                    case Command_AddNewLanguage:
+                    case "5": // Add a new language
                         AddNewLanguage();
                         break;
 
-                    case Command_RemoveLanguage:
+                    case "6": // Remove an existing language
                         RemoveLanguage();
                         break;
 
-                    case Command_AddCity:
+                    case "7": // Add a new city
                         AddCity();
                         break;
 
-                    case Command_Quit:
+                    case "q": // Quit the application
                         Console.WriteLine("Thank you for using the world geography cli app");
                         return;
 
-                    default:
+                    default: // Something else
                         Console.WriteLine("The command provided was not a valid command, please try again.");
                         break;
                 }
@@ -230,7 +227,7 @@ namespace WorldGeography
             Console.WriteLine();
             Console.WriteLine($"Printing {languages.Count()} languages for {countryCode}");
 
-            foreach (var language in languages)
+            foreach (Language language in languages)
             {
                 Console.WriteLine(language);
             }

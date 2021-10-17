@@ -8,23 +8,30 @@ namespace WorldGeography
     {
         public static void Main(string[] args)
         {
-            // Get Settings from AppSettings.json
-            IConfigurationBuilder builder = new ConfigurationBuilder()
-                .SetBasePath(Directory.GetCurrentDirectory())
-                .AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
-            
-            // Load the connection string from the appsettings.json file
-            IConfigurationRoot configuration = builder.Build();
+            // Grab a connection string from appsettings.json
+            IConfigurationRoot configuration = LoadAppConfiguration();
             string connectionString = configuration.GetConnectionString("World");
 
-            // Create our data access objects
+            // Create our data access objects (We'll do this in lecture together)
             ICityDAO cityDAO = null;
             ICountryDAO countryDAO = null;
             ILanguageDAO languageDAO = null;
 
             // Run the Application
             WorldGeographyCLI cli = new WorldGeographyCLI(cityDAO, countryDAO, languageDAO);
-            cli.RunCLI();
+            cli.Run();
+        }
+
+        // NOTE: You really don't need to worry at all about anything in this method
+        private static IConfigurationRoot LoadAppConfiguration()
+        {
+            // Get Settings from AppSettings.json
+            ConfigurationBuilder builder = new ConfigurationBuilder();
+            builder.SetBasePath(Directory.GetCurrentDirectory());
+            builder.AddJsonFile("appsettings.json", optional: true, reloadOnChange: true);
+
+            // Generate an IConfigurationRoot instance that other parts of the app can use
+            return builder.Build();
         }
     }
 }

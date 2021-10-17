@@ -9,9 +9,18 @@ namespace WorldGeography.DAL
     {
         private readonly string connectionString;
 
-        private const string SqlSelectByCountry = "SELECT countrycode, language, isofficial, percentage FROM countrylanguage WHERE countrycode = @countrycode";
-        private const string SqlInsert = "INSERT INTO countrylanguage (countrycode, language, isofficial, percentage) VALUES (@countrycode, @language, @isofficial, @percentage);";
-        private const string SqlDelete = "DELETE FROM countrylanguage WHERE countrycode = @countrycode AND language = @language;";
+        private const string SqlSelectByCountry = 
+            "SELECT countrycode, language, isofficial, percentage " +
+            "FROM countrylanguage " +
+            "WHERE countrycode = @countrycode";
+
+        private const string SqlInsert = 
+            "INSERT INTO countrylanguage (countrycode, language, isofficial, percentage) " +
+            "VALUES (@countrycode, @language, @isofficial, @percentage);";
+
+        private const string SqlDelete = 
+            "DELETE FROM countrylanguage " +
+            "WHERE countrycode = @countrycode AND language = @language;";
 
         /// <summary>
         /// Creates a sql based language dao.

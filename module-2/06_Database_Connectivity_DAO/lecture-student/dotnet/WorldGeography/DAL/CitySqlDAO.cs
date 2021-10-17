@@ -9,8 +9,14 @@ namespace WorldGeography.DAL
     {
         private readonly string connectionString;
 
-        private const string SqlInsert = "INSERT INTO city (name, countrycode, district, population) VALUES (@name, @countrycode, @district, @population);";
-        private const string SqlSelect = "SELECT id, name, countrycode, district, population FROM city WHERE countryCode = @countryCode;";
+        private const string SqlInsert = 
+            "INSERT INTO city (name, countrycode, district, population) " +
+            "VALUES (@name, @countrycode, @district, @population);";
+
+        private const string SqlSelect = 
+            "SELECT id, name, countrycode, district, population " +
+            "FROM city " +
+            "WHERE countryCode = @countryCode;";
 
         /// <summary>
         /// Creates a new sql-based city dao.

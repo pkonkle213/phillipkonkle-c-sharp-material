@@ -10,7 +10,8 @@
 
         public override string ToString()
         {
-            return CityId.ToString().PadRight(6) + Name.PadRight(30) + District.PadRight(30) + Population.ToString("N0").PadRight(10);
+            // -6's etc. are PadRight(6) calls. :N0 is a ToString("N0") call
+            return $"{CityId,-6}{Name,-30}{District,-30}{Population,-10:N0}";
         }
     }
 }
