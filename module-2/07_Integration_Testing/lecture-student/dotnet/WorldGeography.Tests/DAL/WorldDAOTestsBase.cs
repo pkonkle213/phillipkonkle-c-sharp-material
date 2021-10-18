@@ -12,11 +12,6 @@ namespace WorldGeography.Tests.DAL
         protected string ConnectionString { get; } = "Server=.\\SQLEXPRESS;Database=World;Trusted_Connection=True;";
 
         /// <summary>
-        /// Holds the newly generated city id.
-        /// </summary>
-        protected int NewCityId { get; private set; }
-
-        /// <summary>
         /// The transaction for each test.
         /// </summary>
         private TransactionScope transaction;
@@ -34,14 +29,10 @@ namespace WorldGeography.Tests.DAL
             using (SqlConnection conn = new SqlConnection(ConnectionString))
             {
                 conn.Open();
-                SqlCommand cmd = new SqlCommand(sql, conn);
-                SqlDataReader reader = cmd.ExecuteReader();
 
-                // If there is a row to read
-                if (reader.Read())
-                {
-                    this.NewCityId = Convert.ToInt32(reader["newCityId"]);
-                }
+                SqlCommand cmd = new SqlCommand(sql, conn);
+
+                cmd.ExecuteNonQuery();
             }
         }
 

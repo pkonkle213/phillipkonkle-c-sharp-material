@@ -18,7 +18,7 @@ namespace WorldGeography.DAL
             connectionString = databaseconnectionString;
         }
 
-        public IList<Country> GetCountries()
+        public IEnumerable<Country> GetCountries()
         {
             // Declare the output variable
             List<Country> countries = new List<Country>();
@@ -70,7 +70,7 @@ namespace WorldGeography.DAL
             return ctry;
         }
 
-        public IList<Country> GetCountries(string continent)
+        public IEnumerable<Country> GetCountries(string continent)
         {
             List<Country> countries = new List<Country>();
 

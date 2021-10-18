@@ -10,7 +10,7 @@ namespace WorldGeography.DAL
         /// </summary>
         /// <param name="countryCode">The country code to search for.</param>
         /// <returns></returns>
-        IList<City> GetCitiesByCountryCode(string countryCode);
+        IEnumerable<City> GetCitiesByCountryCode(string countryCode);
 
         /// <summary>
         /// Adds a new city.

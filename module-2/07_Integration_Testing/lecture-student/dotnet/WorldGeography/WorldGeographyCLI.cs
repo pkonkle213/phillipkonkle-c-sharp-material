@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using WorldGeography.DAL;
 using WorldGeography.Models;
 
@@ -128,14 +129,16 @@ namespace WorldGeography
 
         private void GetCountries()
         {
-            IList<Country> countries = countryDAO.GetCountries();
+            IEnumerable<Country> countries = countryDAO.GetCountries();
 
             Console.WriteLine();
             Console.WriteLine("Printing all of the countries");
 
-            for (int index = 0; index < countries.Count; index++)
+            int index = 0;
+            foreach (Country country in countries)
             {
-                Console.WriteLine(index + " - " + countries[index]);
+                index++;
+                Console.WriteLine(index + " - " + country);
             }
         }
 
@@ -143,7 +146,7 @@ namespace WorldGeography
         {
             string continent = CLIHelper.GetString("Continent to filter by:");
 
-            IList<Country> northAmericanCountries = countryDAO.GetCountries(continent);
+            IEnumerable<Country> northAmericanCountries = countryDAO.GetCountries(continent);
 
             Console.WriteLine();
             Console.WriteLine("All North American Countries");
@@ -158,10 +161,10 @@ namespace WorldGeography
         {
             string countryCode = CLIHelper.GetString("Enter the country code that you want to retrieve:");
 
-            IList<City> cities = cityDAO.GetCitiesByCountryCode(countryCode);
+            IEnumerable<City> cities = cityDAO.GetCitiesByCountryCode(countryCode);
 
             Console.WriteLine();
-            Console.WriteLine($"Printing {cities.Count} cities for {countryCode}");
+            Console.WriteLine($"Printing {cities.Count()} cities for {countryCode}");
 
             foreach (var city in cities)
             {
@@ -223,10 +226,10 @@ namespace WorldGeography
         {
             string countryCode = CLIHelper.GetString("Enter the country code you want to retrieve:");
 
-            IList<Language> languages = languageDAO.GetLanguages(countryCode);
+            IEnumerable<Language> languages = languageDAO.GetLanguages(countryCode);
 
             Console.WriteLine();
-            Console.WriteLine($"Printing {languages.Count} languages for {countryCode}");
+            Console.WriteLine($"Printing {languages.Count()} languages for {countryCode}");
 
             foreach (var language in languages)
             {

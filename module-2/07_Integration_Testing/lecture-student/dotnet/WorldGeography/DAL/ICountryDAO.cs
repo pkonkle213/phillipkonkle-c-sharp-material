@@ -9,13 +9,13 @@ namespace WorldGeography.DAL
         /// Gets all countries.
         /// </summary>
         /// <returns></returns>
-        IList<Country> GetCountries();
+        IEnumerable<Country> GetCountries();
 
         /// <summary>
         /// Gets all countries for a continent.
         /// </summary>
         /// <param name="continent">The continent to filter by.</param>
         /// <returns></returns>
-        IList<Country> GetCountries(string continent);
+        IEnumerable<Country> GetCountries(string continent);
     }
 }

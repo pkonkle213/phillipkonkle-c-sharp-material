@@ -16,6 +16,3 @@ INSERT INTO countrylanguage VALUES ('USA', 'C#', 1, 100);
 
 -- Assign the fake city to be the capital of the fake country
 UPDATE country SET capital = @newCityId;
-
--- Return the id of the fake city
-SELECT @newCityId as newCityId;
