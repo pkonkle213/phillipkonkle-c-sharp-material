@@ -33,17 +33,88 @@ namespace WorldGeography.DAL
 
         public IEnumerable<Language> GetLanguages(string countryCode)
         {
-            throw new NotImplementedException();
+            List<Language> results = new List<Language>();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand command = new SqlCommand(SqlSelectByCountry,conn);
+                    command.Parameters.AddWithValue("@countrycode", countryCode);
+
+                    SqlDataReader reader = command.ExecuteReader(); //Queries the database and gives us a reader
+
+                    //Loop through each row in the results
+                    while (reader.Read())
+                    {
+                        Language lang = new Language();
+                        lang.CountryCode = Convert.ToString(reader["countrycode"]);
+                        lang.Name = Convert.ToString(reader["language"]);
+                        lang.IsOfficial = Convert.ToBoolean(reader["isofficial"]);
+                        lang.Percentage = Convert.ToInt32(reader["percentage"]); // probably going to run into issues with doubles
+                        results.Add(lang);
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Problem querying database: " + ex.Message);
+            }
+
+            return results;
         }
 
         public bool AddNewLanguage(Language newLanguage)
         {
-            throw new NotImplementedException();
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand command = new SqlCommand(SqlInsert, conn);
+                    command.Parameters.AddWithValue("@countrycode", newLanguage.CountryCode);
+                    command.Parameters.AddWithValue("@language", newLanguage.Name);
+                    command.Parameters.AddWithValue("@isofficial", newLanguage.IsOfficial);
+                    command.Parameters.AddWithValue("@pencentage", newLanguage.Percentage);
+
+                    command.ExecuteNonQuery();
+                }
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Could not add language: " + ex.Message);
+                return false;
+            }
         }
 
         public bool RemoveLanguage(Language deadLanguage)
         {
-            throw new NotImplementedException();
+            try
+            {
+                //Create a connection to the database
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    //Build a command to run on the database
+                    SqlCommand command = new SqlCommand(SqlDelete, conn);
+                    command.Parameters.AddWithValue("@countrycode", deadLanguage.CountryCode);
+                    command.Parameters.AddWithValue("@language", deadLanguage.Name);
+
+                    //Execute the command on the database
+                    command.ExecuteNonQuery();
+                }
+                return true;
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Could not work with database: " + ex.Message);
+                return false;
+            }
         }
     }
 }
