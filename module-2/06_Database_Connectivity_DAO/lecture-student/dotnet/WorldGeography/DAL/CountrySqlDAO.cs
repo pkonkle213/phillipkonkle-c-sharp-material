@@ -29,12 +29,81 @@ namespace WorldGeography.DAL
 
         public IEnumerable<Country> GetCountries()
         {
-            throw new NotImplementedException();
+            List<Country> results = new List<Country>();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand command = new SqlCommand(SqlSelectAll, conn);
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Country country = new Country
+                        {
+                            Code = Convert.ToString(reader["code"]),
+                            Name = Convert.ToString(reader["name"]),
+                            Continent = Convert.ToString(reader["continent"]),
+                            Region = Convert.ToString(reader["region"]),
+                            SurfaceArea = Convert.ToDouble(reader["surfacearea"]),
+                            Population = Convert.ToInt32(reader["population"]),
+                            GovernmentForm = Convert.ToString(reader["governmentform"])
+                        };
+
+                        results.Add(country);
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Could not query the database: " + ex.Message);
+            }
+
+            return results;
         }
 
         public IEnumerable<Country> GetCountries(string continent)
         {
-            throw new NotImplementedException();
+            List<Country> results = new List<Country>();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand command = new SqlCommand(SqlSelectAllByContinent, conn);
+                    command.Parameters.AddWithValue("@continent", continent);
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        Country country = new Country
+                        {
+                            Code = Convert.ToString(reader["code"]),
+                            Name = Convert.ToString(reader["name"]),
+                            Continent = Convert.ToString(reader["continent"]),
+                            Region = Convert.ToString(reader["region"]),
+                            SurfaceArea = Convert.ToDouble(reader["surfacearea"]),
+                            Population = Convert.ToInt32(reader["population"]),
+                            GovernmentForm = Convert.ToString(reader["governmentform"])
+                        };
+
+                        results.Add(country);
+                    }
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Could not query the database: " + ex.Message);
+            }
+
+            return results;
         }
     }
 }

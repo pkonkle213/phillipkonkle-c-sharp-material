@@ -44,7 +44,7 @@ CREATE TABLE event (
 	startDateTime datetime NOT NULL,
 	duration int NOT NULL,
 	groupRunning integer NOT NULL,
-	CONSTRAINT pk_event_number PRIMARY KEY (eventNumber),
-	CONSTRAINT fk_group_running FOREIGN KEY (groupRunning) REFERENCES interestGroup (groupNumber)
+	CONSTRAINT pk_event_number PRIMARY KEY (eventNumber)
 );
+
 COMMIT TRANSACTION

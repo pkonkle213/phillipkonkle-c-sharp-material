@@ -34,7 +34,42 @@ namespace WorldGeography.DAL
 
         public IEnumerable<City> GetCitiesByCountryCode(string countryCode)
         {
-            throw new NotImplementedException();
+            List<City> results = new List<City>();
+
+            try
+            {
+                using (SqlConnection conn = new SqlConnection(this.connectionString))
+                {
+                    conn.Open();
+
+                    SqlCommand command = new SqlCommand(SqlSelect, conn);
+                    command.Parameters.AddWithValue("@countryCode", countryCode);
+
+                    SqlDataReader reader = command.ExecuteReader();
+
+                    while (reader.Read())
+                    {
+                        City city = new City();
+                        city.CityId = Convert.ToInt32(reader["id"]);
+                        city.Name = Convert.ToString(reader["name"]);
+                        city.CountryCode = Convert.ToString(reader["countryCode"]);
+                        
+                        // We only want to set the population if it isn't null in the data set
+                        if (reader["population"] != DBNull.Value)
+                        {
+                            city.Population = Convert.ToInt32(reader["population"]);
+                        }
+                    results.Add(city);
+                    }
+
+                }
+            }
+            catch (SqlException ex)
+            {
+                Console.WriteLine("Could not query database " + ex.Message);
+            }
+
+            return results;
         }
     }
 }
