@@ -1,5 +1,6 @@
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using System.Collections.Generic;
+using System.Linq;
 using WorldGeography.DAL;
 using WorldGeography.Models;
 using WorldGeography.Tests.DAL;
@@ -13,11 +14,14 @@ namespace WorldGeography.Tests
         public void GetCountriesTest_Should_ReturnAllCountries()
         {
             // Arrange
+            CountrySqlDAO dao = new CountrySqlDAO(this.ConnectionString);
 
             // Act
+            IEnumerable<Country> result = dao.GetCountries();
 
             // Assert
-            Assert.Inconclusive("Implement me!");
+            Assert.IsNotNull(result);
+            Assert.AreEqual(1, result.Count());
         }
 
         [TestMethod]
@@ -27,11 +31,14 @@ namespace WorldGeography.Tests
         public void GetCountriesByContinent_Should_ReturnCorrectNumberOfCountries(string continent, int expectedCount)
         {
             // Arrange
+            CountrySqlDAO dao = new CountrySqlDAO(ConnectionString);
 
             // Act
+            IEnumerable<Country> result = dao.GetCountries(continent);
 
             // Assert
-            Assert.Inconclusive("Implement me!");
+            Assert.IsNotNull(result); // Test that it's not null to avoid a 
+            Assert.AreEqual(expectedCount, result.Count());
         }
     }
 }
