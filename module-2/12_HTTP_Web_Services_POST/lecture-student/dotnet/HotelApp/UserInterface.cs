@@ -8,7 +8,7 @@ namespace HTTP_Web_Services_POST_PUT_DELETE_lecture
     public class UserInterface
     {
         private readonly ReservationsService apiService =
-            new ReservationsService("https://te-mockauction-server.azurewebsites.net/students/REPLACEME/");
+            new ReservationsService("https://te-mockauction-server.azurewebsites.net/students/01874/");
 
         private readonly ConsoleService console = new ConsoleService();
 

@@ -7,7 +7,7 @@ namespace AuctionApp
 {
     public class APIService
     {
-        private const string LaptopId = null; // TODO: Replace with a string for your laptop ID. e.g. "12345"
+        private const string LaptopId = "01874"; // TODO: Replace with a string for your laptop ID. e.g. "12345"
         private readonly string API_URL = $"https://te-mockauction-server.azurewebsites.net/students/{LaptopId}/auctions";
         private readonly IRestClient client;
 
@@ -105,15 +105,52 @@ namespace AuctionApp
             return null;
         }
 
-        public Auction AddAuction(Auction newAuction) {
+        public Auction AddAuction(Auction newAuction)
+        {
             // place code here
-            throw new NotImplementedException();
+            RestRequest request = new RestRequest(API_URL);
+            request.AddJsonBody(newAuction);
+
+            IRestResponse<Auction> response = client.Post<Auction>(request);
+
+            if (response.ResponseStatus != ResponseStatus.Completed)
+            {
+                Console.WriteLine("Error occurred - unable to reach server.");
+            }
+            else if (!response.IsSuccessful)
+            {
+                Console.WriteLine("Error occurred - received non-success response: " + (int)response.StatusCode);
+            }
+            else
+            {
+                return response.Data;
+            }
+
+            return new Auction();
         }
 
         public Auction UpdateAuction(Auction auctionToUpdate)
         {
             // place code here
-            throw new NotImplementedException();
+            RestRequest request = new RestRequest(API_URL + "/" + auctionToUpdate.Id);
+            request.AddJsonBody(auctionToUpdate);
+
+            IRestResponse<Auction> response = client.Put<Auction>(request);
+
+            if (response.ResponseStatus != ResponseStatus.Completed)
+            {
+                Console.WriteLine("Error occurred - unable to reach server.");
+            }
+            else if (!response.IsSuccessful)
+            {
+                Console.WriteLine("Error occurred - received non-success response: " + (int)response.StatusCode);
+            }
+            else
+            {
+                return response.Data;
+            }
+
+            return new Auction();
         }
 
         public bool DeleteAuction(int auctionId)
