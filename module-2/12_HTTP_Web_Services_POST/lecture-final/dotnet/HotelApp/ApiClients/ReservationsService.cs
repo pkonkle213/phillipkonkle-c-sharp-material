@@ -111,7 +111,7 @@ namespace HTTP_Web_Services_POST_PUT_DELETE_lecture.ApiClients
             return response.Data;
         }
 
-        private static void CheckForErrors(Reservation newReservation, IRestResponse<Reservation> response)
+        private void CheckForErrors(Reservation newReservation, IRestResponse<Reservation> response)
         {
             if (response.ResponseStatus != ResponseStatus.Completed) // We weren't able to talk to the server
             {
