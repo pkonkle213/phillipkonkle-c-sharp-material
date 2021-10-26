@@ -9,13 +9,13 @@ namespace HotelReservations.Controllers
     [ApiController]
     public class HotelsController : ControllerBase
     {
-        private readonly IHotelDao _hotelDao;
-        private readonly IReservationDao _reservationDao;
+        private readonly IHotelDao hotelDao;
+        private readonly IReservationDao reservationDao;
 
         public HotelsController()
         {
-            _hotelDao = new HotelDao();
-            _reservationDao = new ReservationDao();
+            this.hotelDao = new HotelDao();
+            this.reservationDao = new ReservationDao();
         }
 
         /// <summary>
@@ -24,7 +24,7 @@ namespace HotelReservations.Controllers
         [HttpGet("greeting")] // Responds to GET requests to /Greeting
         public string HelloWorld()
         {
-            return "Hello .NET Purple. Welcome to ASP .NET";
+            return "Hello .NET 15! Welcome to ASP .NET";
         }
 
         // GET hotels - Get all available hotels
