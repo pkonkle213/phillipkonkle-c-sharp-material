@@ -126,7 +126,7 @@ namespace AuctionApp
                 return response.Data;
             }
 
-            return new Auction();
+            return null;
         }
 
         public Auction UpdateAuction(Auction auctionToUpdate)
@@ -150,13 +150,30 @@ namespace AuctionApp
                 return response.Data;
             }
 
-            return new Auction();
+            return null;
         }
 
         public bool DeleteAuction(int auctionId)
         {
             // place code here
-            throw new NotImplementedException();
+            RestRequest request = new RestRequest(API_URL + "/auctions/" + auctionId);
+            request.AddJsonBody(auctionId);
+
+            IRestResponse response = client.Delete(request);
+
+            if (response.ResponseStatus != ResponseStatus.Completed) // We weren't able to talk to the server
+            {
+                Console.WriteLine("Could not communicate with the server. Check your internet connection and try again later.");
+                return false;
+            }
+
+            if (!response.IsSuccessful)
+            {
+                Console.WriteLine("Could not delete reservation: " + response.StatusDescription);
+                return false;
+            }
+
+            return true;
         }
     }
 }
