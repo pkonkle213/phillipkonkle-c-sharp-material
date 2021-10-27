@@ -9,8 +9,8 @@ namespace HotelReservations.Controllers
     [ApiController]
     public class HotelsController : ControllerBase
     {
-        private static IHotelDao hotelDao;
-        private static IReservationDao reservationDao;
+        private readonly IHotelDao hotelDao;
+        private readonly IReservationDao reservationDao;
 
         public HotelsController(IHotelDao _hotelDao, IReservationDao _reservationDao)
         {
@@ -19,13 +19,13 @@ namespace HotelReservations.Controllers
         }
 
         [HttpGet("hotels")]
-        public ActionResult<List<Hotel>> ListHotels()
+        public ActionResult ListHotels()
         {
-            return hotelDao.List();
+            return Ok(hotelDao.List());
         }
 
         [HttpGet("hotels/{id}")]
-        public ActionResult<Hotel> GetHotel(int id)
+        public ActionResult GetHotel(int id)
         {
             Hotel hotel = hotelDao.Get(id);
 
@@ -33,11 +33,11 @@ namespace HotelReservations.Controllers
 
             // TODO: What happens if we get an exception here?
 
-            return hotel;
+            return Ok(hotel);
         }
 
         [HttpGet("hotels/filter")]
-        public ActionResult<List<Hotel>> FilterByStateAndCity(string state, string city)
+        public ActionResult FilterByStateAndCity(string state, string city)
         {
             List<Hotel> filteredHotels = new List<Hotel>();
 
@@ -61,17 +61,18 @@ namespace HotelReservations.Controllers
                     }
                 }
             }
-            return filteredHotels;
+
+            return Ok(filteredHotels);
         }
 
         [HttpGet("hotels/{hotelId}/reservations")]
-        public ActionResult<List<Reservation>> ListReservationsByHotel(int hotelId)
+        public ActionResult ListReservationsByHotel(int hotelId)
         {
             // TODO: What if the ID is negative?
 
             // TODO: What if they give us a hotel that doesn't exist?
 
-            return reservationDao.FindByHotel(hotelId);
+            return Ok(reservationDao.FindByHotel(hotelId));
         }
     }
 }
