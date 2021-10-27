@@ -32,7 +32,7 @@ namespace HotelReservations
                 s.SwaggerDoc("v1", new Microsoft.OpenApi.Models.OpenApiInfo()
                 {
                     Version = "v1",
-                    Title = ".NET Purple Hotel Reservations API",
+                    Title = ".NET Hotel Reservations API",
                     Description = "We swear there are no bedbugs"
                 });
 
