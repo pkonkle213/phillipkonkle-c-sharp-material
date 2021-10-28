@@ -19,6 +19,7 @@ namespace HotelReservations
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            #region Scary Stuff goes here
             services.AddControllers();
 
             // Adds swagger documentation file support. See https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-3.1&tabs=visual-studio for more details
@@ -31,15 +32,18 @@ namespace HotelReservations
                     Description = "We swear there are no bedbugs"
                 });
             });
+            #endregion
 
-            // Dependency Injection configuration
-            services.AddTransient<IHotelDao>(m => new HotelDao());
-            services.AddTransient<IReservationDao>(m => new ReservationDao());
+            // Dependency Injection configuration ------ (The only part you care about) ------------------------
+            services.AddSingleton<IHotelDao>(sp => new HotelDao());
+            services.AddSingleton<IReservationDao>(sp => new ReservationDao());
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            #region More Scary stuff you don't care about
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
@@ -62,6 +66,7 @@ namespace HotelReservations
             {
                 endpoints.MapControllers();
             });
+            #endregion
         }
     }
 }
