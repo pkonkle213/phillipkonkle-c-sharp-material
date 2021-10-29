@@ -32,7 +32,7 @@ namespace BugsServer.Models
         /// <summary>
         /// The date and time the bug was created
         /// </summary>
-        public DateTime Created { get; set; } = DateTime.Now;
+        public DateTime Created { get; set; }
 
         /// <summary>
         /// Whether or not the bug is currently unresolved
@@ -42,7 +42,7 @@ namespace BugsServer.Models
         /// <summary>
         /// The developer who summoned the bug into existence
         /// </summary>
-        public string ResponsibleDev { get; set; } = "Matt Eland";
+        public string ResponsibleDev { get; set; }
 
         /// <summary>
         /// The place in our code the bug exists (or likely exists)

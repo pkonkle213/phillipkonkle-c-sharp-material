@@ -1,4 +1,5 @@
-﻿using BugTrackerConsoleApp.Items;
+﻿using BugTrackerConsoleApp.ApiClients;
+using BugTrackerConsoleApp.Models;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -10,18 +11,13 @@ namespace BugTrackerConsoleApp
     /// </summary>
     public class UserInterface
     {
-        private BugManager bugs = new BugManager();
-        private BugFileManager fileManager = new BugFileManager();
+        private BugApiClient bugApi = new BugApiClient();
 
         /// <summary>
         /// Lists main menu options for the user.
         /// </summary>
         public void ShowMainMenu()
         {
-            // LOAD BUGS HERE
-            fileManager.LoadBugs(bugs);
-            //bugs = fileManager.Manager;
-
             bool shouldQuit = false;
 
             while (!shouldQuit)
@@ -73,20 +69,26 @@ namespace BugTrackerConsoleApp
             Console.WriteLine("What is the bug ID?");
             int bugId = int.Parse(Console.ReadLine());
 
-            bugs.SquashBug(bugId);
-
-            fileManager.SaveBugs(bugs);
+            if (bugApi.CloseBug(bugId))
+            {
+                Console.WriteLine("Bug Closed");
+            }
+            else
+            {
+                Console.WriteLine("The bug could not be closed");
+            }
         }
 
         private void ListBugs()
         {
-            if (this.bugs.AllBugs.Length <= 0)
+            List<Bug> bugs = bugApi.GetAllBugs();
+            if (bugs.Count <= 0)
             {
                 Console.WriteLine("No bugs exist! Ship it!");
             }
             else
             {
-                foreach (Bug someBug in this.bugs.AllBugs)
+                foreach (Bug someBug in bugs)
                 {
                     Console.WriteLine(someBug.DisplayText);
                 }
@@ -104,9 +106,16 @@ namespace BugTrackerConsoleApp
             Bug bug = new Bug(description);
             bug.Location = location;
 
-            this.bugs.AddBug(bug);
+            bug = bugApi.AddBug(bug);
           
-            fileManager.SaveBugs(bugs);
+            if (bug == null)
+            {
+                Console.WriteLine("The bug could not be created");
+            } 
+            else
+            {
+                Console.WriteLine($"Bug {bug.Id} created");
+            }
         }
     }
 }

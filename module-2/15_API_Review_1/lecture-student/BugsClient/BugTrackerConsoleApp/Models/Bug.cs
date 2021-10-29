@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace BugTrackerConsoleApp.Items
+namespace BugTrackerConsoleApp.Models
 {
     /// <summary>
     /// Represents a bug in the system.
