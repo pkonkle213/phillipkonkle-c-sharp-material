@@ -1,5 +1,4 @@
-﻿using HotelReservations.Security.Models;
-using System;
+﻿using System;
 using System.Security.Cryptography;
 
 namespace HotelReservations.Security

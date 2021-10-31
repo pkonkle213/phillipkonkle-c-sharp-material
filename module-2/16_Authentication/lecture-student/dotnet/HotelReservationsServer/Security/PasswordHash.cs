@@ -1,4 +1,4 @@
-﻿namespace HotelReservations.Security.Models
+﻿namespace HotelReservations.Security
 {
     /// <summary>
     /// Represents a hashed password.
@@ -12,8 +12,8 @@
         /// <param name="salt">The salt used to get the hashed password.</param>
         public PasswordHash(string password, string salt)
         {
-            this.Password = password;
-            this.Salt = salt;
+            Password = password;
+            Salt = salt;
         }
 
         /// <summary>

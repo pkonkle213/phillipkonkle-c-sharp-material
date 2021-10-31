@@ -20,12 +20,23 @@ namespace HotelReservations.Controllers
             userDao = _userDao;
         }
 
+        /// <summary>
+        /// Authenticates the user and returns a result of their login request
+        /// </summary>
+        /// <param name="userParam">
+        /// The username and password object. Storing this in the body allows us to send it securely via HTTPS
+        /// </param>
+        /// <returns>The result of the authentication request. This should be a 200 or 400 status code.</returns>
+        /// <remarks>
+        /// Valid credentials:
+        ///     - Username: "user",   Password: "test",  Role: view
+        ///     - Username: "johnny", Password: "test",  Role: creator
+        ///     - Username: "admin",  Password: "admin", Role: admin
+        /// </remarks>
         [HttpPost]
         public IActionResult Authenticate(LoginUser userParam)
         {
             // Default to bad username/password message
-            IActionResult result = BadRequest(new { message = "Username or password is incorrect" });
-
             // Get the user by username
             User user = userDao.GetUser(userParam.Username);
 
@@ -36,13 +47,22 @@ namespace HotelReservations.Controllers
                 string token = tokenGenerator.GenerateToken(user.Id, user.Username, user.Role);
 
                 // Create a ReturnUser object to return to the client
-                ReturnUser retUser = new ReturnUser() { Id = user.Id, Username = user.Username, Role = user.Role, Token = token };
+                ReturnUser retUser = new ReturnUser { 
+                    Id = user.Id, 
+                    Username = user.Username, 
+                    Role = user.Role, 
+                    Token = token 
+                };
 
-                // Switch to 200 OK
-                result = Ok(retUser);
+                // Tell the user we're authenticated
+                return Ok(retUser);
             }
 
-            return result;
+            return BadRequest(new { message = "Username or password is incorrect" });
         }
+
+        // Add an endpoint to check to see what user name we have (User.Identity.Name)
+
+        // Add an endpoint to check to see what user ID we have (User.FindFirst "sub")
     }
 }

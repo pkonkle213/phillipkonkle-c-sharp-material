@@ -1,6 +1,4 @@
-﻿using HotelReservations.Security.Models;
-
-namespace HotelReservations.Security
+﻿namespace HotelReservations.Security
 {
     /// <summary>
     /// Represents a password hasher.

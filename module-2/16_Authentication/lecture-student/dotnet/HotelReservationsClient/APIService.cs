@@ -123,7 +123,7 @@ namespace HotelReservationsClient
             return false;
         }
 
-        private void ProcessErrorResponse(IRestResponse response)
+        private static void ProcessErrorResponse(IRestResponse response)
         {
             if (response.ResponseStatus != ResponseStatus.Completed)
             {
