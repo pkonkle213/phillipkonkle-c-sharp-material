@@ -2,6 +2,7 @@
 using HotelReservations.Security;
 using HotelReservations.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Authorization;
 
 namespace HotelReservations.Controllers
 {
@@ -47,11 +48,12 @@ namespace HotelReservations.Controllers
                 string token = tokenGenerator.GenerateToken(user.Id, user.Username, user.Role);
 
                 // Create a ReturnUser object to return to the client
-                ReturnUser retUser = new ReturnUser { 
-                    Id = user.Id, 
-                    Username = user.Username, 
-                    Role = user.Role, 
-                    Token = token 
+                ReturnUser retUser = new ReturnUser
+                {
+                    Id = user.Id,
+                    Username = user.Username,
+                    Role = user.Role,
+                    Token = token
                 };
 
                 // Tell the user we're authenticated
@@ -62,7 +64,41 @@ namespace HotelReservations.Controllers
         }
 
         // Add an endpoint to check to see what user name we have (User.Identity.Name)
+        [HttpGet] // GET login
+        [AllowAnonymous]
+        public ActionResult GetInfoAboutUser()
+        {
+            var user = this.User;
+
+            if (user.Identity.Name != null)
+            {
+                var idClaim = user.FindFirst("sub");
+                string idString = idClaim.Value;
+                int id = int.Parse(idString);
+
+                return Ok("Hello " + user.Identity.Name);
+            }
+            else
+            {
+                return Ok("Who are you? Who who? Who who?");
+            }
+        }
 
         // Add an endpoint to check to see what user ID we have (User.FindFirst "sub")
+        [HttpGet("test")]
+        [Authorize]
+        public ActionResult TestAuthentication()
+        {
+            return Ok("You apparently are authenticated");
+        }
+
+        [HttpGet("test/admin")] // GET login/test/admin
+        [Authorize(Roles = "admin")] // Means only admin are allowed to use this method
+        public ActionResult TestAdminAuthentication()
+        {
+            return Ok("You must be an admin! Fantastic! Welcome!");
+        }
+
+
     }
 }

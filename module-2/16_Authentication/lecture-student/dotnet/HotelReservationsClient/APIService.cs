@@ -41,6 +41,7 @@ namespace HotelReservationsClient
             }
 
             RestRequest request = new RestRequest(url);
+            request.AddHeader("Authorization", $"bearer {apiToken}");
             IRestResponse<List<Reservation>> response = client.Get<List<Reservation>>(request);
 
             if (response.ResponseStatus != ResponseStatus.Completed || !response.IsSuccessful)

@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 namespace HotelReservationsClient
 {
-    class Program
+    public class Program
     {
         private static readonly APIService apiService = new APIService();
         private static readonly ConsoleService console = new ConsoleService();
