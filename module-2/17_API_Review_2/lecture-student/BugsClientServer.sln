@@ -13,6 +13,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "References", "References", 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BugsServer", "BugsServer\BugsServer.csproj", "{D2B2A33C-B9C7-4E1D-B601-5913D73DED22}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RazorEFSample", "RazorEFSample\RazorEFSample.csproj", "{756A3CC9-3B37-438E-B835-10B951881A40}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TechElevator.LINQSample", "TechElevator.LINQSample\TechElevator.LINQSample\TechElevator.LINQSample.csproj", "{638A32CB-8C22-4D7E-B0C7-B38C487928A8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,6 +31,14 @@ Global
 		{D2B2A33C-B9C7-4E1D-B601-5913D73DED22}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D2B2A33C-B9C7-4E1D-B601-5913D73DED22}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D2B2A33C-B9C7-4E1D-B601-5913D73DED22}.Release|Any CPU.Build.0 = Release|Any CPU
+		{756A3CC9-3B37-438E-B835-10B951881A40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{756A3CC9-3B37-438E-B835-10B951881A40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{756A3CC9-3B37-438E-B835-10B951881A40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{756A3CC9-3B37-438E-B835-10B951881A40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{638A32CB-8C22-4D7E-B0C7-B38C487928A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{638A32CB-8C22-4D7E-B0C7-B38C487928A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{638A32CB-8C22-4D7E-B0C7-B38C487928A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{638A32CB-8C22-4D7E-B0C7-B38C487928A8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
