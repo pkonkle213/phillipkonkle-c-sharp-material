@@ -145,15 +145,27 @@ namespace AuctionApp
             }
             else if (!response.IsSuccessful)
             {
+                if (response.StatusCode == System.Net.HttpStatusCode.Unauthorized)
+                {
+                    throw new UnauthorizedException();
+                }
 
+                if (response.StatusCode == System.Net.HttpStatusCode.Forbidden)
+                {
+                    throw new ForbiddenException();
+                }
+
+                throw new NonSuccessException();
             }
         }
 
         public API_User Login(string submittedName, string submittedPass)
         {
+            RestRequest request = new RestRequest(API_BASE_URL + "login");
+            LoginUser loginUser = new LoginUser { Username = submittedName, Password = submittedPass };
+            request.AddJsonBody(loginUser);
 
-
-            IRestResponse<API_User> response = null;
+            IRestResponse<API_User> response = client.Post<API_User>(request);
 
             if (response.ResponseStatus != ResponseStatus.Completed)
             {
@@ -173,6 +185,8 @@ namespace AuctionApp
             else
             {
                 user.Token = response.Data.Token;
+
+                client.Authenticator = new JwtAuthenticator(user.Token);
 
                 return response.Data;
             }
