@@ -10,7 +10,7 @@ namespace BugTrackerConsoleApp.ApiClients
     {
         private readonly RestClient client = new RestClient("https://localhost:44338/");
 
-        // NOTE: BaseAPI and RestClient aren't set for you. You'll need to create them
+        public bool IsLoggedIn { get; private set; }
 
         public bool CloseBug(int bugId)
         {
@@ -19,22 +19,6 @@ namespace BugTrackerConsoleApp.ApiClients
             var response = client.Delete<Bug>(request);
 
             return response.ResponseStatus == ResponseStatus.Completed && response.IsSuccessful;
-
-            /* Get and a Put instead:
-            RestRequest request = new RestRequest($"bugs/{bugId}");
-            var response = client.Get<Bug>(request);
-
-            Bug bug = response.Data;
-
-            bug.IsOpen = false;
-
-            request = new RestRequest($"bugs/{bugId}");
-            request.AddJsonBody(bug);
-
-            response = client.Put<Bug>(request);
-
-            return response.Data != null;
-             */
         }
 
         public List<Bug> GetAllBugs()
@@ -80,8 +64,18 @@ namespace BugTrackerConsoleApp.ApiClients
             return response.Data;
         }
 
-        // BONUS: Add a method for getting a single bug. You'll need to modify your UserInterface to call this as well.
+        public bool LogIn(string username, string password)
+        {
+            // Make a REST call to authenticate
 
-        // BONUS: Add a method for updating a bug. You'll need to modify your UserInterface to call this as well.
+            // If the call succeeds, store the authentication token
+
+            return false;
+        }
+
+        public void LogOut()
+        {
+            this.IsLoggedIn = false;
+        }
     }
 }

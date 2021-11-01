@@ -21,7 +21,7 @@ namespace BugsServer.DAO
                         FirstName = "Test",
                         LastName = "User",
                         Username = "test",
-                        PasswordHash = "dlCleO5RZDPTPzqSeIdtsml5XjQ=",
+                        PasswordHash = "dlCleO5RZDPTPzqSeIdtsml5XjQ=", // test
                         Salt = "EB8/nsddIKk=",
                         Role = "view"
                     },
@@ -31,7 +31,7 @@ namespace BugsServer.DAO
                         FirstName = "Johnny",
                         LastName = "Creator",
                         Username = "johnny",
-                        PasswordHash = "NAPA8k9bqwISE2vZu+ILndzI818=",
+                        PasswordHash = "NAPA8k9bqwISE2vZu+ILndzI818=", // test
                         Salt = "3uKPKL7XvPc=",
                         Role = "creator"
                     },
@@ -41,7 +41,7 @@ namespace BugsServer.DAO
                         FirstName = "Bobby",
                         LastName = "Tables",
                         Username = "admin",
-                        PasswordHash = "uRl1apapRCSAzMvKJzIIR6z6L7o=",
+                        PasswordHash = "uRl1apapRCSAzMvKJzIIR6z6L7o=", // admin
                         Salt = "PV09N/b0lz0=",
                         Role = "admin"
                     }

@@ -28,12 +28,6 @@ namespace HotelReservations.Controllers
         /// The username and password object. Storing this in the body allows us to send it securely via HTTPS
         /// </param>
         /// <returns>The result of the authentication request. This should be a 200 or 400 status code.</returns>
-        /// <remarks>
-        /// Valid credentials:
-        ///     - Username: "user",   Password: "test",  Role: view
-        ///     - Username: "johnny", Password: "test",  Role: creator
-        ///     - Username: "admin",  Password: "admin", Role: admin
-        /// </remarks>
         [HttpPost]
         [AllowAnonymous]
         public IActionResult Authenticate(LoginUser userParam)
@@ -103,7 +97,5 @@ namespace HotelReservations.Controllers
         {
             return Ok("You must be an admin. Wow!");
         }
-
-        // GET accounts/42/balance
     }
 }

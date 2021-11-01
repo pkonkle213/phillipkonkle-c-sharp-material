@@ -32,7 +32,15 @@ namespace BugTrackerConsoleApp
                 Console.WriteLine("1) Add a Bug");
                 Console.WriteLine("2) List Existing Bugs");
                 Console.WriteLine("3) Close a Bug");
-                Console.WriteLine("4) Quit");
+                if (bugApi.IsLoggedIn)
+                {
+                    Console.WriteLine("4) Log Out");
+                }
+                else
+                {
+                    Console.WriteLine("4) Log In");
+                }
+                Console.WriteLine("5) Quit");
                 Console.WriteLine();
 
                 string input = Console.ReadLine();
@@ -52,7 +60,18 @@ namespace BugTrackerConsoleApp
                         CloseBug();
                         break;
 
-                    case "4": // Quit
+                    case "4": // Login / Logout
+                        if (bugApi.IsLoggedIn)
+                        {
+                            LogOut();
+                        }
+                        else
+                        {
+                            LogIn();
+                        }
+                        break;
+
+                    case "5": // Quit
                         shouldQuit = true;
                         Console.WriteLine("That's all folks!");
                         break;
@@ -62,6 +81,30 @@ namespace BugTrackerConsoleApp
                         break;
                 }
             }
+        }
+
+        private void LogIn()
+        {
+            Console.WriteLine("What is your username?");
+            string username = Console.ReadLine();
+
+            Console.WriteLine("What is your password?");
+            string password = Console.ReadLine();
+
+            if (bugApi.LogIn(username, password))
+            {
+                Console.WriteLine("You are now logged in");
+            }
+            else
+            {
+                Console.WriteLine("You could not be logged in");
+            }
+        }
+
+        private void LogOut()
+        {
+            bugApi.LogOut();
+            Console.WriteLine("You are now logged out.");
         }
 
         private void CloseBug()
