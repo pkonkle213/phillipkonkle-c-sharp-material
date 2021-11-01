@@ -10,6 +10,7 @@ namespace BugTrackerConsoleApp.ApiClients
     {
         // NOTE: BaseAPI and RestClient aren't set for you. You'll need to create them
 
+
         public bool CloseBug(int bugId)
         {
             throw new NotImplementedException();
