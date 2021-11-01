@@ -1,16 +1,14 @@
+using System.IdentityModel.Tokens.Jwt;
+using System.Text;
 using BugsServer.DAO;
+using BugsServer.Security;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
-using Microsoft.AspNetCore.HttpsPolicy;
-using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
-using Microsoft.Extensions.Logging;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
+using Microsoft.IdentityModel.Tokens;
 
 namespace BugsServer
 {
@@ -31,9 +29,39 @@ namespace BugsServer
             // Adds swagger documentation file support. See https://docs.microsoft.com/en-us/aspnet/core/tutorials/getting-started-with-swashbuckle?view=aspnetcore-3.1&tabs=visual-studio for more details
             ConfigureSwagger(services);
 
+            ConfigureJwtAuthentication(services);
+
             // DEPENDENCY INJECTION
             string connectionString = Configuration.GetConnectionString("Bugs");
             services.AddTransient<IBugDao>(sp => new BugSqlDao(connectionString));
+            services.AddSingleton<ITokenGenerator>(sp => new JwtGenerator(Configuration["JwtSecret"]));
+            services.AddSingleton<IPasswordHasher>(sp => new PasswordHasher());
+            services.AddTransient<IUserDao>(sp => new UserDao());
+        }
+
+        private void ConfigureJwtAuthentication(IServiceCollection services)
+        {
+            var key = Encoding.ASCII.GetBytes(Configuration["JwtSecret"]);
+            JwtSecurityTokenHandler.DefaultInboundClaimTypeMap[JwtRegisteredClaimNames.Sub] = "sub";
+            services
+                .AddAuthentication(x =>
+                {
+                    x.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+                    x.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+                })
+                .AddJwtBearer(x =>
+                {
+                    x.RequireHttpsMetadata = false;
+                    x.SaveToken = true;
+                    x.TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateIssuerSigningKey = true,
+                        IssuerSigningKey = new SymmetricSecurityKey(key),
+                        ValidateIssuer = false,
+                        ValidateAudience = false,
+                        NameClaimType = "name"
+                    };
+                });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -43,6 +71,8 @@ namespace BugsServer
             {
                 app.UseDeveloperExceptionPage();
             }
+
+            app.UseAuthentication();
 
             app.UseHttpsRedirection();
 
