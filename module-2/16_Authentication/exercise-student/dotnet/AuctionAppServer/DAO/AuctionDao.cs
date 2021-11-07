@@ -30,6 +30,7 @@ namespace AuctionApp.DAO
         {
             return Auctions;
         }
+
         public Auction Get(int id)
         {
             foreach (var auction in Auctions)
