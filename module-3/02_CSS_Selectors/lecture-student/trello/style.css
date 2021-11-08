@@ -1,0 +1,107 @@
+/* Label coloring. These don't do anything yet, but once we take other steps, things will start working */
+.label.pathway {
+    background-color: red;    
+}
+
+.label.individual {
+    background-color: green;
+}
+
+.label.pair {
+    background-color: teal;
+}
+
+.label.general {
+    background-color: orange;
+}
+
+/* Part 1 - Sizing */
+
+/* Set everything to use border box box-sizing */
+/* Set the main background color to #858C90 */
+/* Set the height of the HTML element to take up 100% of the screen */
+/* Set the main font to be 16px Raleway or sans-serif if Raleway isn't available */
+
+/* Make everything in the header white by default */
+
+/* Give H1's immediately inside of the header an uppercase text transform and a 1.1rem font size */
+
+/* Give paragraphs immediately inside of the header a 0.9rem font size */
+
+/* Part 2 - Display */
+
+/* Make each h1 or p immediately inside of the header 
+    - display inline block, 
+    - have a right padding of 2rem, 
+    - and a 1px white border on the right */
+
+/* Set the header to be 
+    - fixed to the top of the screen 
+    - have a background of #444444, 
+    - a height of 2.5rem, 
+    - and a left/right padding of 0.5rem */
+
+/* Set main to have a relative position with a 2.5rem bump from the default positioning */
+
+/* Each div that also has a trello-list class should:
+    - Display inline-block
+    - Have a width of 300px
+    - Have a right and bottom margin of 1rem
+    - Align vertically at the top of its container
+    - Have a background color of #DDDDDD
+    - Have a border radius of 2px
+    */
+
+/* Each H2 inside of a trello-list div should be bold, have a margin of 1rem, and a font size equal to the document root's font size */
+
+/* Each ordered list inside of a trello-list div should have no margin or padding */
+
+/* Each list item inside of a trello-list div should have:
+    - A white background
+    - A font size 90% of normal
+    - A bottom margin of 10px
+    - 0.5rem padding
+    - Have a list style of none
+*/
+
+/* Any anchor tag inside of a trello-list div should 
+    - display block, 
+    - not be underlined, 
+    - be 85% font, 
+    - have a color of #888888
+    - Have left and right padding of 8px, a top padding of 0, and a bottom padding of 5px
+    */
+
+/* Any span somewhere inside of an element with a class of "labels" should:
+    - Display inline block,
+    - Vertically align to the top,
+    - Be 2rem wide and 0.5rem tall,
+    - Have a border radius of 0.5rem
+    */
+
+/* Part 3 - Special Selectors */
+
+/* Any list item in a div.trello-list that is the last child should not have a margin bottom */
+
+/* Any list item inside of a div.trello-list that the user hovers should have a background of #f5f6f7, a foreground of #092d42, and a finger cursor */
+
+/* Any anchor tag in a div.trello-list should have a background color of RGB 9, 45, 66 with 10% opacity on hover */
+
+/* Scrollbar Styles
+body::-webkit-scrollbar {
+    width: 10px;
+}
+
+body::-webkit-scrollbar-track {
+    background: #BBB;    
+}
+
+body::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 5px;
+}
+
+body::webkit-scrollbar-thumb:hover {
+    background: #888;    
+}
+*/
