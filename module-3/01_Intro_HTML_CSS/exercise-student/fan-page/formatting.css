@@ -1,0 +1,13 @@
+html {
+    background-color: cadetblue;
+    font-weight: 700;
+}
+
+img {
+    width: 25%;
+    min-width: 300px;
+}
+
+.details {
+    color: white;
+}

@@ -1,0 +1,29 @@
+/* element selectors*/
+blockquote {
+    color:purple;
+}
+
+li {
+    margin-top:8px;
+}
+
+html {
+    background-color: sandybrown;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+table {
+    width: 100%;
+}
+
+/* The period lets you select a specific class */
+.formGroup {
+    margin-top:24px;
+    font-weight: bold;
+}
+
+/* The # lets you select different IDs */
+#email {
+    border-width: 5px;
+    border-color: purple;
+}

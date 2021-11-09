@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TE Bugz Sign Up</title>
+    <link rel="stylesheet" href="bugs.css" />
+</head>
+<body>
+    <main>
+        <h1>Sign up for TE Bugz</h1>
+        <p>Please give us money; we like that!</p>
+        <table >
+            <thead>
+                <tr>
+                    <th>Plan Name</th>
+                    <th>Flat Cost</th>
+                    <th>Per User Cost</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Basic</td>
+                    <td>$5</td>
+                    <td>$0.05</td>
+                </tr>
+                <tr>
+                    <td>Plus</td>
+                    <td>$10</td>
+                    <td>$0.10</td>
+                </tr>
+                <tr>
+                    <td>Pro</td>
+                    <td>$20</td>
+                    <td>$1</td>
+                </tr>
+                <tr>
+                    <td>Just Give Me Your Wallet</td>
+                    <td>$Yes</td>
+                    <td>$All of the yes</td>
+                </tr>
+            </tbody>
+        </table>
+        <h2>Sign up now pretty pretty please</h2>
+        <form method="GET" action="index.html">
+            <div class="formGroup">
+                <label for="txtFirst">First Name</label><!--for links to the id of the input-->
+                <input type="text" name="firstName" id="txtFirst" required><!--name and id are often the same thing, but making them different here for clarity-->
+            </div>
+
+            <div class="formGroup">
+                <label for="lastName">Last Name</label>
+                <input type="text" name="lastName" id="lastName">
+            </div>
+
+            <div class="formGroup">
+                <label for id="email">Email Address</label>
+                <input type="email" name="email" id="email">
+            </div>
+            
+            <div class="formGroup">
+                <label for="numusers">Expected User Count</label>
+                <input type="number" name="numusers" id="numusers" value="1">
+            </div>
+
+            <div class="formGroup otherClassThatWeWontUse"><!--use space to separate classes-->
+                <label for="comments">Additional Comments</label><br />
+                <textarea rows="5" name="comments" id="comments">When I was a young boy...</textarea>
+            </div>
+
+            <input type="submit" value="Sign Up">
+        </form>
+    </main>
+</body>
+</html>
