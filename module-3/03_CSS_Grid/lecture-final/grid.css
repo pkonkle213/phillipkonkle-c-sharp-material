@@ -1,0 +1,83 @@
+.container {
+    display: grid;
+    
+    column-gap: 10px;
+    row-gap: 25px;
+    gap: 25px 10px;
+
+    grid-template-areas:
+        "navBar navBar navBar"
+        "menu content events"
+        "legal legal legal";
+    grid-template-columns: 250px 1fr 225px;
+}
+
+header {
+    grid-area: navBar;
+    display: grid;
+    /* grid-template-areas:
+        "bitsTitle ... titleMenu"; */
+    grid-template-areas:
+        "titleMenu"
+        "bitsTitle";
+}
+
+header > h1 {
+    grid-area: bitsTitle;
+}
+
+header > nav {
+    grid-area: titleMenu;
+}
+
+nav#menu-nav.sidebar {
+    grid-area: menu;
+}
+
+.container > main {
+    grid-area: content;
+}
+
+#upcoming-events {
+    grid-area: events;
+}
+
+footer {
+    grid-area: legal;
+}
+
+
+@media screen and (max-width: 768px) 
+{
+    .container {
+        grid-template-areas: 
+            "navBar navBar"
+            "menu content"
+            "events content"
+            "legal legal";
+        grid-template-columns: auto 1fr;
+    }
+
+    aside#upcoming-events {
+        text-align: left;
+        padding-left: 1em;
+    }
+}
+
+@media screen and (max-width: 425px)
+{
+    .container {
+        grid-template-areas:
+            "navBar"
+            "menu"
+            "content"
+            "events"
+            "legal";
+        grid-template-columns: 1fr;
+    }
+
+    aside#upcoming-events {
+        text-align: center;
+    }
+}
+
