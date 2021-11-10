@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TE Bugz Sign Up</title>
+    <link rel="stylesheet" href="bugs.css" />
+</head>
+<body>
+    <main>
+        <h1>Sign up for TE Bugz!</h1>
+        <p>Please give us money; we like that!</p>
+
+        <table>
+            <thead> <!-- Header area of the table -->
+                <tr> <!-- The header row -->
+                    <th> <!-- td = Table Data, th = Table Header -->
+                        Plan Name
+                    </th>
+                    <th>
+                        Flat Cost
+                    </th>
+                    <th>
+                        Per User Cost
+                    </th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>
+                        Basic
+                    </td>
+                    <td>
+                        $10.00
+                    </td>
+                    <td>
+                        $1.00
+                    </td>
+                </tr>
+                <tr>
+                    <td>
+                        Plus
+                    </td>
+                    <td>
+                        $14.00
+                    </td>
+                    <td>
+                        $2.50
+                    </td>
+                </tr>       
+                <tr>
+                    <td>
+                        Pro
+                    </td>
+                    <td>
+                        $20.00
+                    </td>
+                    <td>
+                        $5.00
+                    </td>
+                </tr>         
+                <tr>
+                    <td>
+                        Just give us your wallet
+                    </td>
+                    <td>
+                        YES
+                    </td>
+                    <td>
+                        EVEN MORE YES
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <h2>Sign up Now</h2>
+
+        <form method="GET" action="index.html">
+            <div class="formGroup">
+                <!-- for needs an ID of another element -->
+                <label for="txtFirst">First Name*</label>
+                <input type="text" name="firstName" id="txtFirst" required>
+            </div>
+
+            <div class="formGroup">
+                <label for="lastName">Last Name*</label>
+                <input type="text" name="lastName" id="lastName" required>
+            </div>
+
+            <div class="formGroup">
+                <label for="email">E-Mail*</label>
+                <input type="email" name="email" id="email" required>
+            </div>
+
+            <div class="formGroup numericFormGroup">
+                <label for="numusers">Expected User Count</label>
+                <input type="number" name="numusers" id="numusers" 
+                       min="1" 
+                       max="100"
+                       value="1" >
+            </div>
+
+            <div class="formGroup">
+                <label for="comments">Additional Comments</label> <br />
+                <textarea rows="5" name="comments" id="comments" ></textarea>
+            </div>
+
+            <input type="submit" value="Sign Up Now, Dangit!" >
+        </form>
+    </main>
+</body>
+</html>
