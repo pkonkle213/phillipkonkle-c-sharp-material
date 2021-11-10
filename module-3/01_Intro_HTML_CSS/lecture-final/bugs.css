@@ -1,0 +1,37 @@
+#mattQuotes {
+    color: navy;
+}
+blockquote {
+    color: red;
+}
+.awesomeQuotes {
+    color: green;
+}
+
+li {
+    margin-top: 8px;
+}
+html {
+    background-color:#d4e8f8;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif
+}
+small {
+    font-size: 8pt;
+    text-align: center;
+}
+table {
+    width: 100%;
+}
+
+/* This lets me select a specific class */
+.formGroup {
+    margin-top: 24px;
+    font-weight: bold;
+}
+
+/* This selects something with an ID of email */
+#email {
+    border-width: 2px;
+    border-color: purple;
+    width: 300px;
+}
