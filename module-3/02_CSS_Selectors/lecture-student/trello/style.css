@@ -82,13 +82,13 @@ header {
     background-color: #444444;
     height: 2.5rem;
     padding: 0 0.5rem 0 0.5rem;
-    z-index: 5;
+    z-index: 1000;
 }
 
 /* Set main to have a relative position with a 2.5rem bump from the default positioning */
 main#trello-board {
     position: relative;
-    top: 2.5 rem;
+    top: 2.5rem;
 }
 
 /* Each div that also has a trello-list class should:
@@ -103,7 +103,7 @@ main#trello-board {
 div.trello-list {
     display: inline-block;
     width: 300px;
-    margin: 0 1rem 1 rem 0;
+    margin: 0 1rem 1rem 0;
     vertical-align: top;
     background-color: #DDDDDD;
     border-radius: 2px;
@@ -196,5 +196,4 @@ body::-webkit-scrollbar-thumb {
 
 body::webkit-scrollbar-thumb:hover {
     background: #888;    
-}
-*/
+} */

@@ -1,0 +1,28 @@
+.container {
+    display: grid;
+    grid-template-areas: 
+    "navBar navBar navBar"
+    "menu content events"
+    "legal legal legal";
+    grid-template-columns: 1fr 2fr 1fr;
+}
+
+header {
+    grid-area: navBar; /* NO QUOTES! */
+}
+
+nav#menu-nav.sidebar {
+    grid-area: menu;
+}
+
+#upcoming-events {
+    grid-area: events;
+}
+
+.container > main {
+    grid-area: content;
+}
+
+footer {
+    grid-area: legal;
+}
