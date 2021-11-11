@@ -1,0 +1,318 @@
+/* Tech Elevator Colors
+
+Dark Gray:  #3B3E42
+Blue:       #00ADEE
+Green:      #8CC63F
+Light Gray: #999999
+White:      #FFFFFF
+Orange:     #F6931D
+Purple:     #363E8B
+Gold:       #FFCB48
+Red:        #c63f3f
+*/
+
+/* Document Styling */
+
+/* Move everything to use border box box sizing */
+
+html {
+    font-size: 16px;
+    font-family: 'Proxima Nova', Tahoma, Arial, sans-serif;
+    box-sizing: border-box;
+}
+
+/* Give the main content area enough padding to look acceptable */
+body {
+    color: #363E8B;
+    background-color: #999999;
+    /* Specify the minimum mobile resolution we'll support */
+    min-width: 300px;
+    display: grid;
+    grid-template-areas: "navBar"
+        "squirrelPic"
+        "mainBody"
+        "footer";
+    row-gap: 0.5rem;
+}
+
+/* Use #999999 for the body's background color and white for the main content area's background color */
+
+main {
+    background-color: white;
+    padding: 1rem;
+    grid-area: mainBody;
+    /* Specify the minimum height for this region. On small pages it can loop wierd if we don't do this */
+    min-height: 400px;
+}
+
+/* If a section starts with a H1, set its margin-top to 0 and instead give it a padding-top. */
+section>h1:first-child {
+    margin-top: 0.25rem;
+    padding-top: 0.25rem;
+}
+
+/* Sections should have their last child not have a margin bottom */
+section> :last-child {
+    margin-bottom: 0;
+}
+
+/* Sidebar Styling */
+
+/* Asides should use a background color, a max-width of 20rem, and float right */
+aside {
+    grid-area: squirrelPic;
+    background-color: #3B3E42;
+    border: 1px solid #3B3E42;
+    color: white;
+    text-align: center;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 20rem;
+    padding: 0.1rem;
+}
+
+aside cite {
+    display: block;
+}
+
+/* Images inside of asides should have a max-width of 100% */
+aside img {
+    max-width: 100%;
+    margin-bottom: 0.25rem;
+}
+
+/* Block quotes inside of asides should use some form of non-solid border top */
+aside blockquote {
+    border-top: 3px dotted #FFCB48;
+    padding-top: 0.5rem;
+}
+
+cite {
+    font-size: x-small;
+}
+
+blockquote {
+    font-size: small;
+    margin-top: 1rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+/* Cites inside of block quotes should be on the next line */
+blockquote cite {
+    text-align: right;
+    margin-top: 0.5rem;
+    color: #FFCB48;
+    font-style: normal;
+}
+
+/* General Header / Footer Styling */
+
+header, footer {
+    background-color: #3B3E42;
+    color: #999999;
+}
+
+header {
+    grid-area: navBar;
+    text-align: center;
+    border-bottom: 5px solid #FFCB48;
+}
+
+header>a {
+    margin: 0;
+    display: inline-block;
+}
+
+.active {
+    color: #00ADEE;
+}
+
+footer {
+    border-top: 5px solid #FFCB48;
+    text-align: center;
+    padding: 1rem;
+    grid-area: footer;
+}
+
+footer nav {
+    margin-bottom: 1rem;
+}
+
+nav a {
+    padding: 1rem;
+    display: block;
+    text-align: center;
+}
+
+/* Link Styling */
+a {
+    color: #8CC63F;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 90%;
+    cursor: pointer;
+}
+
+/* Links inside the main content area should be blue instead of green */
+main a {
+    color: #00ADEE;
+}
+
+/* The link should be a different color when you hover over it */
+a:hover {
+    color: #F6931D;
+}
+
+/* Responsive Design Rules */
+
+@media screen and (min-width: 707px) {
+
+    header {
+        text-align: left;
+    }
+
+    header nav {
+        text-align: center;
+    }
+
+    header>a {
+        margin: 0.5rem 0 0 0.5rem;
+    }
+
+    nav a {
+        display: inline-block;
+        padding: 0 1rem;
+    }
+
+    html body {
+        column-gap: 0.5rem;
+        grid-template-columns: 1fr 20rem;
+        grid-template-areas: "navBar navBar" "mainBody squirrelPic" "mainBody ..." "footer footer";
+    }
+}
+
+/* Customized Scrollbar Style */
+::-webkit-scrollbar {
+    width: 1rem;
+}
+
+::-webkit-scrollbar-track {
+    background: #999999;
+}
+
+::-webkit-scrollbar-thumb {
+    background: #ffffff;
+    box-shadow: #3b3e42 0.1rem 0.1rem;
+    border-radius: 0.25rem;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #ffcb48;
+}
+
+/* Styling for the list container */
+
+html body {
+    grid-template-columns: 1fr;
+    grid-template-areas:
+        "navBar"
+        "mainBody"
+        "footer";
+}
+
+main {
+    display: grid;
+    grid-template-areas:
+        "aFriendlyNote"
+        "yet-another-squirrel"
+        "questionsList"
+        "notEnough";
+}
+
+#opening {
+    grid-area: aFriendlyNote;
+}
+
+aside {
+    grid-area: yet-another-squirrel;
+}
+
+#questionList {
+    grid-area: questionsList;
+}
+
+#closing {
+    grid-area: notEnough;
+}
+
+/* List item styling */
+
+article {
+    border: #3B3E42 solid 1px;
+    border-radius: 0.5rem;
+    background-color: #FFCB48;
+    overflow: none;
+    color: #ffffff;
+    text-shadow: 2px 2px #999999;
+    padding: 0;
+    margin: 0.5rem;
+    box-shadow: 0.25rem 0.25rem #999999;
+}
+
+article:hover {
+    background-color: #F6931D;
+}
+
+/* Styling areas of the list items */
+
+.answer {
+    padding: 0.5rem;
+    background-color: #3B3E42;
+    text-shadow: none;
+    height: 8rem;
+    overflow: auto;
+    font-size: small;
+}
+
+.question {
+    height: 2rem;
+    padding: 0.5rem;
+    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    font-weight: bold;
+    min-height: 37px;
+}
+
+/* Blur the answer text by default */
+
+article.blur {
+    background-color: #00ADEE;
+}
+
+article.blur:hover {
+    background-color: #F6931D;
+}
+
+article.blur:hover .answer {
+    color: #ffffff;
+    text-shadow: none;
+}
+
+article.blur .answer {
+    color: transparent;
+    text-shadow: 0 0 5px #ffffff;
+}
+
+main aside {
+    margin-top: 1rem;
+}
+
+/* Responsive Layout Rules */
+@media screen and (min-width: 768px) {
+    main {
+        grid-template-areas:
+            "aFriendlyNote yet-another-squirrel"
+            "questionsList questionsList"
+            "notEnough notEnough";
+    }
+}
