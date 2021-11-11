@@ -33,6 +33,7 @@ aside > img {
 
 main {
   margin-left: 200px;
+  padding: 0 20px;
 }
 
 aside li {
@@ -47,3 +48,60 @@ aside li {
   line-height: 2;
 }
 
+li a {
+  font-weight: bold;
+  text-decoration: none;
+  color: #00ADEE;
+}
+
+li a:hover {
+  text-decoration: underline;
+}
+
+header {
+  height: 120px;
+}
+
+header > img {
+  height: 80%;
+}
+
+img.banner {
+  display: block;
+  width: 100%;
+}
+
+section div {
+  display: inline-block;
+  width: 33%;
+  padding-right: 20px;
+  vertical-align: text-top;
+}
+
+section h2 {
+  color: #8CC36F;
+}
+
+h2 i {
+  margin-right: 10px;
+}
+
+section div:not(:last-child) {
+  border-right: 1px solid;
+  border-color: rgba(170, 239, 135, 0.8); 
+}
+
+section div:not(:first-child) {
+  padding-left: 20px;
+}
+
+/*
+div#what-we-do, div#our-work {
+  border-right: 1px solid;
+  border-color: rgba(170, 239, 135, 0.8);
+}
+
+div#our-work, div#contact-us {
+  padding-left: 20px;
+}
+*/
