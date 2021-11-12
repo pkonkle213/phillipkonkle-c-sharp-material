@@ -1,0 +1,12 @@
+header nav {
+    display: flex;
+    justify-content: space-evenly;
+    flex-grow: 1; /* If there's extra room, put it here! */
+}
+
+header {
+    display: flex;
+    align-content: center;
+    align-items: center;
+
+}
