@@ -1,0 +1,35 @@
+#all-items article {
+    display: flex;
+}
+
+/* #all-items article:last-child div:first-child {
+    order: 1;
+} */
+
+#all-items section article div:first-child {
+    align-self: center;
+}
+
+
+.render-at-end {
+    order: 1;
+}
+
+#hero > footer {
+    display: flex;
+    align-content: center;
+    align-items: center;
+    justify-content: stretch;
+    justify-items: stretch;
+}
+
+#hero > footer > span
+{
+    flex-grow: 1;
+    display: flex;
+    justify-content: space-evenly;
+}
+
+#featured > section {
+    display: flex;
+}
