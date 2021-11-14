@@ -5,14 +5,13 @@
 		sumDouble(1, 2) → 3
 		sumDouble(3, 2) → 5
 		sumDouble(2, 2) → 8
-
-		function sumDouble(x, y) {
-			// do logic here
-			// return result;
-			// Note: You can't just uncomment this and have it pass the tests. :-\
-			return x + y;
-        }
 */
+function sumDouble(x, y) {  // function #1 is defined for you. The rest you have to define yourself below
+	
+	// Note: This won't pass all tests yet. You still have work to do here.
+	return x + y;
+}
+
 
 /*
 2. **hasTeen** We'll say that a number is "teen" if it is in the range 13..19 inclusive. 
@@ -106,11 +105,10 @@ parameter, `x` passed in.
 */
 
 /*
-12. **createObject** Write a function that creates an object with a property called 
+12. **createObject** Write a function that creates and returns an object with a property called 
 firstName, lastName, and age. Populate the properties with your values.
 
 	createObject() →
-
 	{
 		firstName,
 		lastName,
