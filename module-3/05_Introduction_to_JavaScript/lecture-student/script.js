@@ -16,11 +16,14 @@ console.info("Info message from our JavaScript file!");
 console.warn("Warning message from our JavaScript file!");
 console.error("Error message from our JavaScript file!");
 
-// Console.WriteLine won't work here
+let week=10;
 
+// Console.WriteLine won't work here
+console.log("Another log statement");
 
 // TODO: Or will it?
-
+let loggingFunction = console.log; // Store log function into loggingFunction
+loggingFunction("This is super weird");
 
 
 // --------------------------------------------------------------------
