@@ -1,0 +1,22 @@
+[
+  {
+    "Author": "Michael Crichton",
+    "Books": [
+      "Sphere",
+      "Jurassic Park"
+    ]
+  },
+  {
+    "Author": "Michael Feathers",
+    "Books": [
+      "Working Effectively with Legacy Code"
+    ]
+  },
+  {
+    "Author": "Adam Tornhill",
+    "Books": [
+      "Your Code as a Crime Scene",
+      "Software Design X-Rays"
+    ]
+  }
+]
