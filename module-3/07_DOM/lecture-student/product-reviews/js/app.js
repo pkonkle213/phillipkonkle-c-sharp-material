@@ -1,3 +1,4 @@
+// We start with some initial data that we won't need to change
 const name = 'Cigar Parties for Dummies';
 const description = 'Host and plan the perfect cigar party for all of your squirrelly friends.';
 const reviews = [
@@ -30,6 +31,10 @@ const reviews = [
     rating: 3
   }
 ];
+
+// First, let's look over the functions already here
+
+// Next let's talk about the 3 different ways of querying the document for elements
 
 /**
  * Add our product name to the page title
