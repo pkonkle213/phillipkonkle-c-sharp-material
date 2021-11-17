@@ -1,5 +1,4 @@
-/**
- * Write a function called isAdmitted. It will check entrance
+/** Write a function called isAdmitted. It will check entrance
  * scores and return true if the student is admitted and
  * false if rejected. It takes three parameters:
  *
@@ -20,6 +19,15 @@
  * @returns {boolean} true if they are admitted
  */
 
+ function isAdmitted(gpa,satScore=0,recommendation=false) {
+     if (gpa>4 || satScore>1300 || (gpa > 3 && recommendation===true) || (satScore > 1200 && recommendation===true)) {
+         return true;
+     }
+
+     return false;
+ }
+
+let unfilteredArray = [1, 2, 3, 4, 5, 6];
 /**
  * Write a function called useParameterToFilterArray that takes an anonymous
  * function and uses that in the `unfilteredArray` filter function. Return the result.
@@ -27,7 +35,11 @@
  * @param {function} filterFunction the function to filter with
  * @returns {number[]} the filtered array
  */
-let unfilteredArray = [1, 2, 3, 4, 5, 6];
+
+let useParameterToFilterArray = function(filterFunction) {
+    let number = unfilteredArray.filter((num) => filterFunction(num));
+    return number;
+}
 
 /**
  * Write a function called makeNumber that takes two strings
@@ -42,6 +54,10 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
  * @returns {number} the resultant number
  */
 
+ function makeNumber(string1, string2='') {
+     return parseInt(string1 + string2);
+ }
+
 /**
  * Write a function called addAll that takes an unknown number of parameters
  * and adds all of them together. Return the sum.
@@ -50,11 +66,30 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
  * @returns {number} the sum of all the parameters (or arguments)
  */
 
+function addAll(...num) {
+    let sum = 0;
+    for (let number of num) {
+        sum += number;
+    }
+    return sum;
+}
+
 /*
  * Write and document a function called makeHappy that takes
  * an array and prepends 'Happy ' to the beginning of all the
  * words and returns them as a new array. Use the `map` function.
  */
+
+ /**
+  * Takes in an array of words, adds 'Happy ' to the beginning of each word,
+  * and returns the resulting array
+  * @param  {string[]} words a series of words to add 'Happy ' to
+  * @returns {string[]} the resulting array of Happy words
+  */
+ function makeHappy(words) {
+    let happyWords = words.map(word => 'Happy ' + word);
+    return happyWords;
+ }
 
 /*
  * Write and document a function called getFullAddressesOfProperties
@@ -73,6 +108,8 @@ let unfilteredArray = [1, 2, 3, 4, 5, 6];
  *
  * Use `map` and an anonymous function.
  */
+
+
 
 /*
  * Write and document a function called findLargest.
