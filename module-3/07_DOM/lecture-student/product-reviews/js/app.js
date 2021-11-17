@@ -17,6 +17,12 @@ const reviews = [
     rating: 4
   },
   {
+    reviewer: 'Clippy',
+    title: 'Because things are awesome',
+    review: 'This is stressful',
+    rating: 5
+  },
+  {
     reviewer: 'Ramit Sethi',
     title: 'What every new entrepreneurs needs. A door stop.',
     review:
@@ -36,13 +42,22 @@ const reviews = [
 
 // Next let's talk about the 3 different ways of querying the document for elements
 
+// document.getElementById('someId'); no # - Matt doesn't like this one
+// document.querySelector('#someSelector'); gets the first matching element
+// document.querySelectorAll('li'); gets an array-like thing containing all matching nodes or an empty array - this needs to be looped over
+
 /**
  * Add our product name to the page title
  */
 function setPageTitle() {
   // Get our page page title by the id and the query the .name selector
+  // wrong - document.getElementById('page-title');
+  let span = document.querySelector('h2 span.name');
 
   // Add the product name to the span.
+
+  span.innerText = name;
+
 }
 
 /**
@@ -50,8 +65,11 @@ function setPageTitle() {
  */
 function setPageDescription() {
   // Get the description paragraph
+  let p = document.querySelector('p.description');
 
+  // console.log(p)
   // Set the description paragraph's contents
+  p.innerText = description;
 }
 
 /**
@@ -61,21 +79,37 @@ function setPageDescription() {
  */
 function displayReviews() {
   // Grab the main area of the application
+  let main = document.querySelector('div#main');
 
   // For each review, build out HTML by:
+  reviews.forEach((review) => {
+        
+    // ... creating a new HTML element (a div (ew))
+    let div = document.createElement('div');
+    
+    // ... add the review class to that div
+    div.classList.add('review');
+    
+    // ... addReviewer
+    addReviewer(div, review.reviewer);
+    
+    // ... addRating
+    addRating(div, review.rating);
 
-  // ... creating a new HTML element (a div (ew))
-  // ... add the review class to that div
+    // ... addTitle
+    addTitle(div, review.title);
 
-  // ... addReviewer
-  // ... addRating
-  // ... addTitle
-  // ... addReview
-
-  // ... add the div to the application area
-
-  // Now that we've added these divs, let's find the rating divs
-  // With these divs, add the rating class to them
+    // ... addReview
+    addReview(div, review.review);
+    
+    // ... add the div to the application area
+    main.appendChild(div);
+  });
+    // Now that we've added these divs, let's find the rating divs
+    let divs = document.querySelectorAll('.review div');
+    // With these divs, add the rating class to them
+    divs.forEach(div => div.classList.add('rating'));
+    // divs.classList.add('rating'); doesn't work because divs is an array
 }
 
 /**
@@ -87,8 +121,11 @@ function displayReviews() {
  */
 function addReviewer(parent, name) {
   // Create an element that looks something like <h4>name</h4>
-
+  let h4 = document.createElement('h4');
+  h4.innerText = name;
+  
   // Add this element to the parent
+  parent.appendChild(h4);
 }
 
 /**
@@ -98,8 +135,11 @@ function addReviewer(parent, name) {
  */
 function addTitle(parent, title) {
   // Create an element that looks something like <h3>title</h3>
-
+  let h3 = document.createElement('h3');
+  h3.innerText = title;
+  
   // Add this element to the parent
+  parent.appendChild(h3);
 }
 
 /**
@@ -110,8 +150,11 @@ function addTitle(parent, title) {
 function addReview(parent, review) {
   // Create an element that looks something like <p>review</p>
   // Note that this element may contain HTML content
+  let p = document.createElement('p');
+  p.innerHTML = review;
 
   // Add this element to the parent  
+  parent.appendChild(p);
 }
 
 /**
@@ -121,12 +164,20 @@ function addReview(parent, review) {
  */
 function addRating(parent, numberOfStars) {
   // Create a div to hold the number of stars
+let div = document.createElement('div');
 
   // For each star:
   // ... create an image using 'img/star.png'
   // ... add that star to the parent
+  for (let i=0;i<numberOfStars;i++) {
+    let img = document.createElement('img');
+    img.src = 'img/star.png';
+    img.alt = 'a glowing, beautiful gold star';
+    div.appendChild(img);
+  }
 
   // Add the stars div to the parent
+  parent.appendChild(div);
 }
 
 // Code to start up our application. This will change tomorrow:
