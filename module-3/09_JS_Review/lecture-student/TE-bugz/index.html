@@ -5,7 +5,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TE Bugz - Home Page</title>
+
     <link href="bugz.css" rel="stylesheet" />
+    <script type="text/javascript" src="bugz.js"></script>
 </head>
 
 <body>
@@ -34,18 +36,49 @@
                     resolve the never-ending stream of bugs? No, but we're sure going to help monetize it!</p>
             </section>
             <section class="features">
-                <h2>Features</h2>
-                <p>TE Bugz offers the following features:</p>
-                <ul>
-                    <li>View Bugs List</li>
-                    <li>Add Bug</li>
-                    <li>Edit Bug</li>
-                    <li>Duplicate Bug+</li>
-                    <li>Unending E-Mail Notifications+</li>
-                    <li>Charts illustrating your hopeless situation+</li>
-                    <li>Reassign to Random Coworker*</li>
-                    <li>Hide Bug From Management*</li>
-                </ul>
+                <p>Like any piece of software, our application has a few <em>interesting</em> features others might call bugs:</p>
+                <h2>Known Bugz</h2>
+                <table class="blueTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Description</th>
+                            <th>Reported By</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <th>1</th>
+                            <td>Bug data is hardcoded into the app</td>
+                            <td>Matt Eland</td>
+                        </tr>
+                        <tr>
+                            <th>2</th>
+                            <td>The application doesn't do my taxes for me!</td>
+                            <td>Vinny Sanfillipo</td>
+                        </tr>
+                        <tr>
+                            <th>3</th>
+                            <td>Reporting a bug does nothing. Don't be quite that lazy, Matt.</td>
+                            <td>Vinny Sanfillipo</td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <h2>Report a Bug</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="newBugReportedBy">Description</label>
+                        <input id="newBugDescription" type="text" placeholder="What's wrong now?" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newBugReportedBy">Reported By</label>
+                        <input id="newBugReportedBy" type="text" placeholder="Who found this???" required>
+                    </div>
+                    <div>
+                        <input id="btnAddBug" type="submit" value="Report">
+                    </div>
+                </form>
             </section>
             <figure>
                 <img src="bug.jpg" class="bugImg" alt="A bug that is oddly cute while still being terrifying">
