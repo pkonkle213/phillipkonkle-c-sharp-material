@@ -109,7 +109,22 @@ function addAll(...num) {
  * Use `map` and an anonymous function.
  */
 
-
+ /**
+  * Takes in an array of address objects and turns them into an array of a mailing address string
+  * @param {address[]} arrayOfAddresses an array of address objects
+  * @return {string[]} the resulting array of string street addresses
+  */
+function getFullAddressesOfProperties(arrayOfAddresses) {
+    let fullAddresses = arrayOfAddresses.map(
+        (currentAddress) => (currentAddress.streetNumber + " " +
+            currentAddress.streetName + " " +
+            currentAddress.streetType + " " +
+            currentAddress.city + " " +
+            currentAddress.state + " " +
+            currentAddress.zip)
+    );
+    return fullAddresses;
+}
 
 /*
  * Write and document a function called findLargest.
@@ -117,6 +132,21 @@ function addAll(...num) {
  * Using `forEach`, find the largest element in an array.
  * It must work for strings and numbers.
  */
+
+/**
+ * From an array, this finds the largest number or the latest in the alphabet string
+ * @param {string[], number[]} arrayOfStuff array of numbers or strings
+ * @return {string, number} returns the greatest number or the string the is last in the alphabet
+ */
+function findLargest(arrayOfStuff) {
+    let greatest = arrayOfStuff[0];
+    arrayOfStuff.forEach((thing) => {
+        if (thing > greatest) {
+            greatest = thing;
+        }
+    })
+return greatest;
+}
 
 /*
  * CHALLENGE
@@ -135,3 +165,7 @@ function addAll(...num) {
  *
  * Read the tests to verify you have the correct behavior.
  */
+
+ function getSumOfSubArrayValues(arrayOfArrays) {
+
+}
