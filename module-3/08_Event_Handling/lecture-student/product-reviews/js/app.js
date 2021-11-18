@@ -107,7 +107,7 @@ function showDescriptionEdit(event) {
 
   const target = event.target;
 
-  const textBox = target.nextElementSibling;
+  const textBox = target.nextElementSibling; // ew (input#inputDesc)
   textBox.value = description;
   textBox.classList.remove('d-none');
 
@@ -124,16 +124,21 @@ function showDescriptionEdit(event) {
  * @param {Boolean} save should we save the description text
  */
 function exitDescriptionEdit(event, save) {
-  const target = null; // TODO: This comes from the event
+  const target = event.target; // TODO: This comes from the event
 
-  if (!target) return; // this line can go once target is set
+  // if (!target) return; // this line can go once target is set
 
-  const desc = target.previousElementSibling;
+  const desc = target.previousElementSibling; // ew, p.description
 
   // If we're saving, get the new value and set that into description and desc
   if (save) {
+    console.log(target.value);
+    let newText = target.value;
+    description = newText;
+    desc.innerText = newText;
   }
 
+  // Hide the input, show the paragraph
   target.classList.add('d-none');
   desc.classList.remove('d-none');
 }
@@ -153,16 +158,48 @@ function initialize() {
   // -----------------------------------------------
 
   // Step 2: When the user clicks on btnToggleForm, call showHideForm
+  let btnForm = document.querySelector('#btnToggleForm');
+  // console.log(btnForm);
+  btnForm.addEventListener('click',event => {
+    // console.log("Button clicked!", event);
+    showHideForm();
+  });
 
   // Step 3: When the user clicks btnSaveReview, call saveReview
+// let btnSave = document.querySelector('#btnSaveReview');
+// btnSave.addEventListener('click',event => {
+//   btnSaveReview(); // there's an error here?
+// });
+
+document.getElementById('btnSaveReview').addEventListener("click", event => saveReview(event));
 
   // -----------------------------------------------
 
   // Step 4: When the user double clicks the description paragraph, 
   // call showDescriptionEdit and pass it the event
 
+  let p = document.querySelector('p.description');
+  p.addEventListener('dblclick', event => {
+    showDescriptionEdit(event);
+  })
+
   // Step 5: When the user presses a key on the input with an ID of inputDesc, 
   // check for enter and escape and call exitDescriptionEdit
+  let desc = document.getElementById("inputDesc");
+  // desc.addEventListener('keydown', event => {
+  //   console.log('Key down event', event);
+  // })
+  desc.addEventListener('keyup', event => {
+    console.log('Key up event', event);
+    if (event.key === "Enter") {
+      exitDescriptionEdit(event,true);
+    } else if (event.key === "Escape") {
+      exitDescriptionEdit(event,false);
+    }
+  })
+  // desc.addEventListener('keypress', event => {
+  //   console.log('Key press event', event);
+  // })
 
   // ------------------------------------------------
 
@@ -175,18 +212,38 @@ function initialize() {
  * @param {Event} event the event that occurred in the browser
  */
 function saveReview(event) {
+  event.preventDefault(); // Prevents the page from refreshing (default action of a form)
   console.log('Saving Review', event);
 
   // Get the value of the name, title, review, and rating controls (these are their ids)
+  const nameInput = document.querySelector("#name");
+  const titleInput = document.querySelector("#title");
+  const reviewInput = document.querySelector("#review");
+  const ratingInput = document.querySelector("#rating");
+
+  console.debug(nameInput, titleInput, reviewInput, ratingInput)
 
   // Create a new review object with these values for reviewer, 
   // title, review, and rating
+  let newReview = {
+    reviewer: nameInput.value,
+    title: titleInput.value,
+    rating: ratingInput.value,
+    review: reviewInput.value
+  }
 
   // Add the new object to reviews
-
+  reviews.push(newReview);
+  console.log(newReview,reviews);
   // Call displayReview with the new review as a parameter
+  displayReview(newReview);
 
   // Call showHideForm to toggle the form visibility
+  showHideForm();
 }
 
 // Step 1: Call initialize when the DOM is ready
+document.addEventListener("DOMContentLoaded", event => {
+  console.log(event);
+  initialize();
+});
