@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TE Bugz - Home Page</title>
+
+    <link href="bugz.css" rel="stylesheet" />
+    <script type="text/javascript" src="bugz.js"></script>
+</head>
+
+<body>
+    <header>
+        <a href="index.html">
+            <img src="Logo.png" alt="TE Bugz Logo">
+        </a>
+        <nav>
+            <a href="">Register</a>
+            <a href="">Login</a>
+            <a href="">Logout</a>
+        </nav>
+    </header>
+    <main>
+        <h1>Welcome to TE Bugz</h1>
+        <div class="container">
+            <section class="main-info">
+                <p>Time and time again we talk to stressed-out students and software engineers who respond to questions
+                    of
+                    software quality with <q>I don't have time for that!</q> or <q>quality is someone else's problem</q> or <q>sir,
+                    this
+                    is a Wendy's</q>.
+                </p><p>
+                    Well, we at TE Bugz hear you loud and clear. Your quality problems are our priority! Will we help
+                    you
+                    resolve the never-ending stream of bugs? No, but we're sure going to help monetize it!</p>
+            </section>
+            <section class="features">
+                <p>Like any piece of software, our application has a few <em>interesting</em> features others might call bugs:</p>
+                <h2>Known Bugz</h2>
+                <table class="blueTable" id="bugsTable">
+                    <thead>
+                        <tr>
+                            <th>ID</th>
+                            <th>Description</th>
+                            <th>Reported By</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+
+                    </tbody>
+                </table>
+
+                <h2>Report a Bug</h2>
+                <form>
+                    <div class="form-group">
+                        <label for="newBugReportedBy">Description</label>
+                        <input id="newBugDescription" type="text" placeholder="What's wrong now?" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="newBugReportedBy">Reported By</label>
+                        <input id="newBugReportedBy" type="text" placeholder="Who found this???" required>
+                    </div>
+                    <div>
+                        <input id="btnAddBug" type="submit" value="Report">
+                    </div>
+                </form>
+            </section>
+            <figure>
+                <img src="bug.jpg" class="bugImg" alt="A bug that is oddly cute while still being terrifying">
+            </figure>
+            <section class="table">
+                <h2>Plans</h2>
+                <table class="blueTable">
+                    <tr>
+                        <th>Name</th>
+                        <th>Flat Cost</th>
+                        <th>Per-User Cost</th>
+                    </tr>
+                    <tr>
+                        <td>Basic</td>
+                        <td>$10.00</td>
+                        <td>$1.00</td>
+                    </tr>
+                    <tr>
+                        <td>Plus</td>
+                        <td>$14.00</td>
+                        <td>$2.50</td>
+                    </tr>
+                    <tr>
+                        <td>Pro</td>
+                        <td>$24.00</td>
+                        <td>$5.00</td>
+                    </tr>
+                </table>
+            </section>
+            <section class="user-success">
+                <h2>User Success Stories</h2>
+                <blockquote>The application rarely ever crashes now that I stopped opening it! <cite>- Kevin Teos</cite></blockquote>
+                <blockquote>This application is amazing at effectively draining my bank account. <cite>- John Fulton</cite>
+                </blockquote>
+                <blockquote>You'd never know that this was just an elaborate bitcoin miner. <cite>- Matt Eland</cite></blockquote>
+            </section>
+            <footer>
+                <small>
+                <p>Tech Elevator, LLC is not responsible for the usage of this application or any injuries sustained in
+                    its development</p>
+                <p>TE Bugz is not guaranteed to be free of bugs or in any way resemble a working application.</p>
+                </small>
+            </footer>
+        </div>
+    </main>
+</body>
+
+</html>

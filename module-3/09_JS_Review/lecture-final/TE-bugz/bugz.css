@@ -1,0 +1,140 @@
+* {
+    box-sizing: content-box;
+}
+
+body {
+    padding: 1em;
+}
+
+.container{
+    display: grid;
+    grid-template-areas: 
+    "mainInfo mainInfo mainInfo"
+    "features features bugImg"
+    "table table table"
+    "userSuccess userSuccess userSuccess"
+    "footer footer footer";
+    grid-template-columns: 1fr 1fr 1fr;
+}
+
+header{
+    display: flex;
+    justify-content: space-between;
+}
+
+header img{
+    width: 150px;
+}
+
+nav{
+    justify-content: space-around;
+    align-content: stretch;
+    align-items: center;
+}
+
+nav a{
+    color: #004E98;
+    text-decoration: none;
+}
+
+a:hover{
+    text-decoration: underline;
+}
+
+.main-info{
+    grid-area: mainInfo;
+}
+
+.features{
+    grid-area: features;
+}
+
+figure{
+    grid-area: bugImg;
+   
+}
+.bugImg{
+    width: 400px;
+}
+.table{
+    grid-area: table;
+}
+
+.user-success{
+    grid-area: userSuccess;
+}
+
+footer{
+    grid-area: footer;
+    text-align: center;
+}
+
+h2{
+    color: #3A6EA5;
+    border-bottom: 1px solid #C0C0C0;
+
+}
+
+table.blueTable {
+    border: 1px solid #1C6EA4;
+    background-color: #EBEBEB;
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+  }
+  table.blueTable td, table.blueTable th {
+    border: 1px solid #AAAAAA;
+    padding: 3px 2px;
+  }
+  table.blueTable tbody td {
+    font-size: 13px;
+    color: #000000;
+  }
+  table.blueTable tr:nth-child(even) {
+    background: #D0E4F5;
+  }
+  table.blueTable thead {
+    background: #EBEBEB;
+    background: -moz-linear-gradient(top, #f0f0f0 0%, #ededed 66%, #EBEBEB 100%);
+    background: -webkit-linear-gradient(top, #f0f0f0 0%, #ededed 66%, #EBEBEB 100%);
+    background: linear-gradient(to bottom, #f0f0f0 0%, #ededed 66%, #EBEBEB 100%);
+    border-bottom: 2px solid #444444;
+  }
+  table.blueTable thead th {
+    font-size: 15px;
+    font-weight: bold;
+    color: #004E98;
+    border-left: 2px solid #D0E4F5;
+  }
+  table.blueTable thead th:first-child {
+    border-left: none;
+  }
+  
+  table.blueTable tfoot {
+    font-size: 14px;
+    font-weight: bold;
+    color: #FFFFFF;
+    background: #D0E4F5;
+    background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+    background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+    background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+    border-top: 2px solid #444444;
+  }
+  table.blueTable tfoot td {
+    font-size: 14px;
+  }
+  table.blueTable tfoot .links {
+    text-align: right;
+  }
+  table.blueTable tfoot .links a{
+    display: inline-block;
+    background: #1C6EA4;
+    color: #FFFFFF;
+    padding: 2px 8px;
+    border-radius: 5px;
+  }
+  form input {
+      display:block;
+      margin-top: 0.5em;
+      margin-bottom: 1.5em;
+  }
