@@ -72,28 +72,58 @@ function clear() {
 }
 
 // add event listener for when the DOM is loaded
-document.addEventListener('LOADED_EVENT_GOES_HERE', () => {
+document.addEventListener('DOMContentLoaded', (event) => {
 
   // set the variable called display equal to the display element
   // HINT: use its id #display to get a reference to it
+  display = document.querySelector('#display');
 
   // get a reference to all of the numbers
+  let numbers = document.querySelectorAll('.number');
+
   // loop over each of the numbers
-  // add a click event listener to each number to call the function clickNumber
+  numbers.forEach((number) => {
+    // add a click event listener to each number to call the function clickNumber
+    number.addEventListener('click', event => {
+      clickNumber(event);
+    })
+  });
 
   // get a reference to the decimal point button
+  let decimal = document.querySelector('.decimal');
+
   // add a click event listener to call the function clickNumber
+  decimal.addEventListener('click', event => {
+    clickNumber(event);
+  });
+
   // the decimal point is part of the number so append it
+  // ??????????? wait what ???????????
 
   // get a reference to the all clear button
+  let clearButton = document.querySelector('.all-clear');
+
   // add a click event listener to call the function clear  
+  clearButton.addEventListener('click', event => {
+    clear();
+  });
 
   // get a reference to all of the operators;
+  let operators = document.querySelectorAll('.operator');
+
   // loop over each of the operators
-  // add a click event listener to each operator to call the function clickOperator
-
+  operators.forEach((operator) => {
+    // add a click event listener to each operator to call the function clickOperator
+    operator.addEventListener('click', event => {
+      clickOperator(event);
+    });
+  });
+    
   // add click event listener for the equal sign
-  // should call the function performOperation
-
+  let equal = document.querySelector('.equal-sign');
+  equal.addEventListener('click', event => {
+    // should call the function performOperation
+    performOperation();
+  })
 });
 

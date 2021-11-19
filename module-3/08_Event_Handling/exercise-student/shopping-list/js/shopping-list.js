@@ -37,5 +37,83 @@ function displayGroceries() {
   });
 }
 
-setPageTitle();
-displayGroceries();
+function updateList() {
+  let list = document.querySelectorAll('li');
+  for (let i = 0; i < list.length; i++) {
+    if (groceries[i].completed) {
+      list[i].classList.add('completed');
+      list[i].lastChild.classList.add('completed');
+    } else {
+      list[i].classList.remove('completed');
+      list[i].lastChild.classList.remove('completed');
+    }
+  }
+}
+
+function clicked(event) {
+  const target = event.target;
+  const name = target.outerText;
+
+  for(let i = 0;i < groceries.length; i++) {
+    if (groceries[i].name===name) {
+      groceries[i].completed = true;
+    }
+  }
+
+  updateList()
+}
+
+function doubleClicked(event) {
+  const target = event.target;
+  const name = target.outerText;
+
+  for(let i = 0;i < groceries.length; i++) {
+    if (groceries[i].name===name) {
+      groceries[i].completed = false;
+    }
+  }
+
+  updateList()
+}
+
+function initialize() {
+  setPageTitle();
+  displayGroceries();
+
+  let listSelect = document.querySelectorAll('li');
+  listSelect.forEach((element) => {
+    element.addEventListener('click', event => {
+      clicked(event);
+    });
+
+    element.addEventListener('dblclick', event => {
+      doubleClicked(event);
+    });
+  });
+
+  let completeAll = document.querySelector('#toggleAll');
+  completeAll.addEventListener('click', event => {
+      completeAll.innerText=markAll();
+  });
+}
+
+function markAll() {
+  let returnString;
+  if (allItemsIncomplete===true) {
+    allItemsIncomplete=false;
+    returnString="Mark All Incomplete";
+  } else {
+    allItemsIncomplete=true;
+    returnString="Mark All Complete";
+  }
+
+  groceries.forEach((item) => {
+    item.completed = !allItemsIncomplete;
+  });
+  updateList()
+  return returnString;
+}
+
+document.addEventListener("DOMContentLoaded", event => {
+  initialize();
+});
