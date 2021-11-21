@@ -2,9 +2,7 @@ We need to do the following things:
 
 ## Components and Templates
 
--[ ] Add a review-list component
-
-This component should have the following things:
+Add a review-list component with the following things:
 
 -[ ] Header with "Product Reviews for MY_PRODUCT_NAME_HERE"
 -[ ] A paragraph listing the # of reviews with the average rating per review (placeholders are fine)
@@ -15,14 +13,14 @@ This component should have the following things:
 ## Binding
 
 -[ ] Add pieces of data to the model
--[ ] Bind the inputs to data in the model
+-[ ] Bind the inputs to data in the model using v-model
+-[ ] Play with the Vue dev tools
 -[ ] Make sure that numeric input is treated as numeric
-
-Make sure you play with the Vue dev tools here
+-[ ] Display bound data in placeholders using mustache syntax
 
 ## V-For
 
--[ ] Add a template for a single review in the HTML. Hard-coded data is fine
+-[ ] Add a template for a single review in the HTML. Hard-coded data is fine for now
 -[ ] Add a piece of data for the reviews
 -[ ] Use v-for to change the single review to multiple reviews
 -[ ] Set the properties of each review in the template
