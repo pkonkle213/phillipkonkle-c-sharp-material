@@ -26,6 +26,12 @@ Add a review-list component with the following things:
 -[ ] Set the properties of each review in the template
 -[ ] Use v-bind:class to specify which classes should be applied
 -[ ] Use v-bind:title or v-bind:id to illustrate other aspects of v-bind
+-[ ] Talk about : shorthand for v-bind
+-[ ] Use v-for to represent the images
+
+## Styles
+
+-[ ] Talk about scoped vs non-scoped
 
 ## Computed
 
