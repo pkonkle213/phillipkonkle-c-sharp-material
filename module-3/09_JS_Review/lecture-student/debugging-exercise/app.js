@@ -25,7 +25,7 @@ let thingsMattThinksAreFun = [
 function getModuleNumFromWeekNum(weekNum) {
     switch (weekNum)
     {
-        case 1:
+        case 1: 
         case 2:
         case 3:
         case 4:
@@ -40,12 +40,15 @@ function getModuleNumFromWeekNum(weekNum) {
         case 11:
         case 12:
             return 3;
+        case 13:
+        case 14:
+            return 'Capstone';
         default:
             return '???';
     }
 }
 
-document.addEventListener('PageLoaded', () => {
+document.addEventListener('DOMContentLoaded', () => {
     console.log('Application Starting...');
 
     // Add a module number to each thing Matt thinks is fun
@@ -53,16 +56,17 @@ document.addEventListener('PageLoaded', () => {
         let newThing = {
             name: thing.name, 
             week: thing.week,
-            module: getModuleNumFromWeekNum(thing.weekNum) 
+            module: getModuleNumFromWeekNum(thing.week) 
         };
 
         console.debug('Mapping', thing, newThing);
+        return newThing;
     });
 
     console.log('Value of data after the map', thingsMattThinksAreFun);
 
     // For each thing Matt thinks is fun, add an H2 element for it to the DOM
-    let app = document.getElementById('#app');
+    let app = document.getElementById('app');
     thingsMattThinksAreFun.forEach(thing => {
         // Add a header
         let header = document.createElement('h2');
