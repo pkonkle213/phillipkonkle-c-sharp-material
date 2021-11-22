@@ -6,32 +6,32 @@
 
     <!-- Filter / data controls -->
     <div class="well-display">
-      <div class="well">
+      <div class="well" title="Click to show all reviews">
         <span class="amount">{{ averageRating }}</span>
         Average Rating
       </div>
 
-      <div class="well">
+      <div class="well" title="Click to show 1 star reviews and higher">
         <span class="amount">{{ numberOfOneStarReviews }}</span>
         1 Star Review{{ numberOfOneStarReviews === 1 ? '' : 's' }}
       </div>
 
-      <div class="well">
+      <div class="well"  title="Click to show 2 star reviews and higher">
         <span class="amount">{{ numberOfTwoStarReviews }}</span>
         2 Star Review{{ numberOfTwoStarReviews === 1 ? '' : 's' }}
       </div>
 
-      <div class="well">
+      <div class="well"  title="Click to show 3 star reviews and higher">
         <span class="amount">{{ numberOfThreeStarReviews }}</span>
         3 Star Review{{ numberOfThreeStarReviews === 1 ? '' : 's' }}
       </div>
 
-      <div class="well">
+      <div class="well" title="Click to show 4 star reviews and higher">
         <span class="amount">{{ numberOfFourStarReviews }}</span>
         4 Star Review{{ numberOfFourStarReviews === 1 ? '' : 's' }}
       </div>
 
-      <div class="well">
+      <div class="well" title="Click to show 5 star reviews and higher">
         <span class="amount">{{ numberOfFiveStarReviews }}</span>
         5 Star Review{{ numberOfFiveStarReviews === 1 ? '' : 's' }}
       </div>
@@ -72,7 +72,7 @@
       class="review"
       v-bind:class="{ favorited: review.favorited }"
       v-for="review in reviews"
-      v-bind:key="review.id"
+      v-bind:key="review.reviewer"
     >
       <h4>{{ review.reviewer }}</h4>
       <div class="rating">
@@ -256,6 +256,10 @@ form > input[type=button] {
 form > input[type=submit] {
   width: 100px;
   margin-right: 10px;
+}
+.well:hover {
+  background-color: lavender;
+  cursor: pointer;
 }
 </style>
 
