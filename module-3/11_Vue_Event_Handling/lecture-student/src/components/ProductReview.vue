@@ -38,16 +38,19 @@
     </div>
 
     <!-- A Show Form link here would be good -->
+    <a href="#" v-if="!showAddForm" v-on:click.prevent="showAddForm = true;">
+      Show Form
+    </a>
 
     <!-- Add new items form -->
-    <form>
+    <form v-show="showAddForm" v-on:submit.prevent="handleSaveReview($event)">
       <div class="form-element">
         <label for="reviewer">Name:</label>
         <input id="reviewer" type="text" v-model="newReview.reviewer" />
       </div>
       <div class="form-element">
         <label for="title">Title:</label>
-        <input id="title" type="text" v-model="newReview.title" />
+        <input id="title" type="text" v-model.trim="newReview.title" />
       </div>
       <div class="form-element">
         <label for="rating">Rating:</label>
@@ -63,8 +66,8 @@
         <label for="review">Review:</label>
         <textarea id="review" v-model="newReview.review"></textarea>
       </div>
-      <input type="submit" value="Save">
-      <input type="button" value="Cancel">
+      <input type="submit" value="Save" v-bind:disabled="!canSave">
+      <input type="button" value="Cancel" v-on:click="showAddForm = false;">
     </form>
 
     <!-- Reviews list -->
@@ -99,8 +102,23 @@
 <script>
 export default {
   name: "product-review",
+  methods: {
+    handleSaveReview(event) {
+      console.log("Save Clicked", event);
+
+      const reviewToAdd = this.newReview;
+
+      // Unshift adds to the beginning of an array (index 0)
+      this.reviews.unshift(reviewToAdd);
+
+      this.newReview = {};
+
+      this.showAddForm = false;
+    },
+  },
   data() {
     return {
+      showAddForm: false,
       name: "Cigar Parties for Dummies",
       description:
         "Host and plan the perfect cigar party for all of your squirrelly friends.",
@@ -142,6 +160,16 @@ export default {
     };
   },
   computed: {
+    canSave() {
+      if (this.newReview.title && 
+          this.newReview.reviewer && 
+          this.newReview.rating && 
+          this.newReview.review) {
+          return true;
+      }
+
+      return false;
+    },
     averageRating() {
       let sum = this.reviews.reduce((currentSum, review) => {
         return currentSum + review.rating;
@@ -262,4 +290,3 @@ form > input[type=submit] {
   cursor: pointer;
 }
 </style>
-
