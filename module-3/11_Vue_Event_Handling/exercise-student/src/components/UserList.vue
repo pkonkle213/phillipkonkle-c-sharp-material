@@ -44,7 +44,7 @@
           v-bind:class="{ disabled: user.status === 'Disabled' }"
         >
           <td>
-            <input type="checkbox" v-bind:id="user.id" v-bind:value="user.id" />
+            <input type="checkbox" v-bind:id="user.id" v-bind:value="user.id" v-model="selectedUserIDs"/>
           </td>
           <td>{{ user.firstName }}</td>
           <td>{{ user.lastName }}</td>
@@ -52,36 +52,36 @@
           <td>{{ user.emailAddress }}</td>
           <td>{{ user.status }}</td>
           <td>
-            <button class="btnEnableDisable">Enable or Disable</button>
+            <button class="btnEnableDisable" v-bind:key="user.id" v-on:click="flipStatus(user.id)">{{user.status==="Active" ? "Disable" : "Enable"}}</button>
           </td>
         </tr>
       </tbody>
     </table>
 
     <div class="all-actions">
-      <button>Enable Users</button>
-      <button>Disable Users</button>
-      <button>Delete Users</button>
+      <button v-on:click.prevent="enableSelectedUsers()">Enable Users</button>
+      <button v-on:click.prevent="disableSelectedUsers()">Disable Users</button>
+      <button v-on:click.prevent="deleteSelectedUsers()">Delete Users</button>
     </div>
 
-    <button>Add New User</button>
+    <button v-on:click='toggleShowForm()'>Add New User</button>
 
-    <form id="frmAddNewUser">
+    <form id="frmAddNewUser" v-show="showForm" v-on:submit.prevent="handleSaveUser()">
       <div class="field">
         <label for="firstName">First Name:</label>
-        <input type="text" name="firstName" />
+        <input type="text" name="firstName" v-model="newUser.firstName"/>
       </div>
       <div class="field">
         <label for="lastName">Last Name:</label>
-        <input type="text" name="lastName" />
+        <input type="text" name="lastName" v-model="newUser.lastName"/>
       </div>
       <div class="field">
         <label for="username">Username:</label>
-        <input type="text" name="username" />
+        <input type="text" name="username"  v-model="newUser.username"/>
       </div>
       <div class="field">
         <label for="emailAddress">Email Address:</label>
-        <input type="text" name="emailAddress" />
+        <input type="text" name="emailAddress" v-model="newUser.emailAddress"/>
       </div>
       <button type="submit" class="btn save">Save User</button>
     </form>
@@ -93,6 +93,7 @@ export default {
   name: "user-list",
   data() {
     return {
+      showForm: false,
       filter: {
         firstName: "",
         lastName: "",
@@ -108,6 +109,7 @@ export default {
         emailAddress: "",
         status: "Active"
       },
+      selectedUserIDs: [],
       users: [
         {
           id: 1,
@@ -160,7 +162,64 @@ export default {
       ]
     };
   },
-  methods: {},
+  methods: {
+    flipStatus(id) {
+      this.users.forEach(user => {
+        if (user.id===id) {
+          if (user.status==="Active") {
+            user.status="Disabled";
+            return true;
+          }
+          if (user.status==="Disabled") {
+            user.status="Active";
+            return true;
+          }
+        }
+      });
+    },
+    enableSelectedUsers(){
+      this.selectedUserIDs.forEach(num => {
+        this.users.forEach(user => {
+          if (user.id===num) {
+            user.status="Active";
+          }
+        });
+      });
+      this.selectedUserIDs=[];
+    },
+    disableSelectedUsers(){
+      this.selectedUserIDs.forEach(num => {
+        this.users.forEach(user => {
+          if (user.id===num) {
+            user.status="Disabled";
+          }
+        });
+      });
+      this.selectedUserIDs=[];
+    },
+    deleteSelectedUsers(){
+      console.log("This doesn't work");
+
+      this.selectedUserIDs=[];
+    },
+    handleSaveUser() {
+      let maxId=-1;
+      this.users.forEach(user => {
+        if (user.id > maxId) {
+          maxId=user.id;
+        }
+      });
+      this.newUser.id=maxId + 1;
+      const userToAdd = this.newUser;
+      this.users.push(userToAdd);
+      this.newUser={};
+      this.showForm=false;
+    },
+    toggleShowForm() {
+        this.showForm=!this.showForm;
+        return this.showForm
+    },
+  },
   computed: {
     filteredList() {
       let filteredUsers = this.users;
@@ -198,7 +257,7 @@ export default {
         );
       }
       return filteredUsers;
-    }
+    },
   }
 };
 </script>
