@@ -72,7 +72,7 @@ export default {
       let sum = this.$store.state.reviews.reduce((currentSum, review) => {
         return currentSum + review.rating;
       }, 0);
-      return (sum / this.reviews.length).toFixed(2);
+      return (sum / this.$store.state.reviews.length).toFixed(2);
     }
   }
 };
