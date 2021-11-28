@@ -7,19 +7,8 @@
     <!-- Filter / data controls -->
     <p class="help">Click on a rating below to filter the list of reviews. Click on the Average Rating button to show all reviews.</p>
 
-    <!-- Let's make this a component for review -->
-    <div class="well-display">
-      <!-- The average button -->
-      <div class="well" v-on:click="clearFilter" title="Show all reviews">
-        <span class="amount">{{ averageRating }}</span>
-        Average Rating
-      </div>
-
-      <!-- Add 5 filter buttons -->
-      <filter-button v-for="i of 5"
-                     v-bind:key="i"
-                     v-bind:rating="i" />
-    </div>
+    <!-- This holds everything related to filtering -->
+    <filter-control />
 
     <!-- Show Add Item -->
     <a href="#" 
@@ -43,7 +32,7 @@
 import ProductInfo from '../components/ProductInfo.vue'
 import ReviewListItem from '../components/ReviewListItem.vue'
 import AddReviewForm from '../components/AddReviewForm.vue'
-import FilterButton from '../components/FilterButton.vue'
+import FilterControl from '../components/FilterControl.vue'
 
 export default {
   name: "product-review",
@@ -51,15 +40,7 @@ export default {
     ProductInfo,
     ReviewListItem,
     AddReviewForm,
-    FilterButton
-  },
-  methods: {
-    clearFilter() {
-      console.log('Clear filter clicked');
-
-      // Commit a mutation named 'CLEAR_FILTER'. This lives in Vuex's mutations.
-      this.$store.commit('CLEAR_FILTER');
-    },
+    FilterControl
   },
   computed: {
     filteredReviews() {
@@ -67,12 +48,6 @@ export default {
         let filterRating = this.$store.state.ratingToFilterTo;
         return filterRating === undefined || rev.rating === filterRating;
       });
-    },
-    averageRating() {
-      let sum = this.$store.state.reviews.reduce((currentSum, review) => {
-        return currentSum + review.rating;
-      }, 0);
-      return (sum / this.$store.state.reviews.length).toFixed(2);
     }
   }
 };

@@ -54,7 +54,6 @@ export default {
             let reviewToAdd = this.newReview;
 
             // Add the new review to the reviews array (at the beginning)
-            //this.$store.state.reviews.splice(0, 0, reviewToAdd); // Start at beginning, delete nothing, add the review
             this.$store.commit('ADD_REVIEW', reviewToAdd);
 
             // Clear the form for the next addition (and prevents odd bugs in adding data multiple times)
