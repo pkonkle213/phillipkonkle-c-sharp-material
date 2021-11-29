@@ -78,7 +78,15 @@ export default {
             this.$router.push({name: 'NotFound'});
         }
 
-        this.bug = {...vuexBug}; // Clone the thing we found in Vuex
+        // Clone the thing we found in Vuex
+        this.bug = {
+            id: vuexBug.id,
+            title: vuexBug.title,
+            description: vuexBug.description,
+            priority: vuexBug.priority,
+            isOpen: vuexBug.isOpen,
+            resolution: vuexBug.resolution,
+        };
     },    
     methods: {
         saveBug() {

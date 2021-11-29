@@ -1,7 +1,7 @@
 Lecture Tasks
 
+- [ ] Review Application Code
 - [ ] Promise we'll talk about promises
-- [ ] Review Style Changes
 
 - [ ] Review the API Endpoints at https://bugslist.azurewebsites.net/index.html
 - [ ] Clear out the list of bugs from Vuex

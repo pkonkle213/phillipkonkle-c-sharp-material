@@ -21,26 +21,10 @@
                       </router-link>
                   </td>
                   <td>
-                      <span v-bind:class="{
-                            badge: true,
-                            'bg-secondary': bug.priority === 1,
-                            'bg-info': bug.priority === 2,
-                            'bg-primary': bug.priority === 3,
-                            'bg-warning': bug.priority === 4,
-                            'bg-danger': bug.priority === 5,
-                           }">
-                        Priority: {{bug.priority}}
-                      </span>
+                      <priority-badge :bug="bug" />
                   </td>
                   <td>
-                      <span class="badge bg-primary" v-if="bug.isOpen"
-                        v-bind:title="bug.description">
-                          Open
-                      </span>
-                      <span class="badge bg-success" v-if="!bug.isOpen"
-                        v-bind:title="bug.resolution">
-                          Closed
-                      </span>
+                      <status-badge :bug="bug" /> 
                   </td>
               </tr>
           </tbody>
@@ -60,21 +44,28 @@
 </template>
 
 <script>
+import PriorityBadge from '../components/PriorityBadge.vue';
+import StatusBadge from '../components/StatusBadge.vue';
+
 export default {
-    name: 'bugs-list',
-    computed: {
-        allBugs() {
-            return this.$store.state.bugs;
-        },
-        hasBugs() {
-            return this.allBugs.length > 0;
-        }
-    },
-    methods: {
-        addBug() {
-            this.$router.push({name: 'NewBug'});
-        }
-    }
+  components: {
+     PriorityBadge,
+     StatusBadge 
+  },
+  name: 'bugs-list',
+  computed: {
+      allBugs() {
+          return this.$store.state.bugs;
+      },
+      hasBugs() {
+          return this.allBugs.length > 0;
+      }
+  },
+  methods: {
+      addBug() {
+          this.$router.push({name: 'NewBug'});
+      }
+  }
 }
 </script>
 
@@ -113,6 +104,14 @@ table tbody td {
 }
 table tr:nth-child(even) {
   background: $accentLight;
+  a:hover {
+    color: $accentDark !important;
+  }
+}
+table tr:nth-child(odd) {
+  a:hover {
+    color: $accentDark !important;
+  }
 }
 table thead {
   background: $accentDark;
