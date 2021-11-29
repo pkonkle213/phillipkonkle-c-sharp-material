@@ -62,6 +62,15 @@ export default new Vuex.Store({
       if (review) {
         review.favorited = true;
       }
+    },
+    MARK_AS_NOT_FAVORITE(state, reviewer) {
+      // Find the review by its reviewer
+      const review = state.reviews.find(r => r.reviewer === reviewer);
+
+      // Mark the review as favorited if found
+      if (review) {
+        review.favorited = false;
+      }
     }
   },
   actions: {

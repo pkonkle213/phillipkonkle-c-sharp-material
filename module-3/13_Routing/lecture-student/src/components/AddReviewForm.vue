@@ -37,7 +37,8 @@ export default {
                 rating: 1,
                 title: '', // v-model="newReview.title"
                 review: '',
-                reviewer: ''
+                reviewer: '',
+                favorite: false,
             },
         };
     },
@@ -61,7 +62,8 @@ export default {
                 rating: 1,
                 title: '',
                 review: '',
-                reviewer: ''
+                reviewer: '',
+                favorite: false,
             }
 
             // Hide the form

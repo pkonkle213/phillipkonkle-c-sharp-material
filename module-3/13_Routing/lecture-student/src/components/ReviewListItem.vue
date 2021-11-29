@@ -18,6 +18,8 @@
 
       <button v-if="!review.favorited"
               v-on:click="markAsFavorite">Mark as Favorite</button>
+      <button v-if="review.favorited"
+              v-on:click="markAsNotFavorite">Remove Favorite</button>
     </div>
 </template>
 
@@ -29,6 +31,9 @@ export default {
     methods: {
         markAsFavorite() {
             this.$store.commit('MARK_AS_FAVORITE', this.review.reviewer)
+        },
+        markAsNotFavorite() {
+          this.$store.commit('MARK_AS_NOT_FAVORITE', this.review.reviewer)
         }
     }
 }

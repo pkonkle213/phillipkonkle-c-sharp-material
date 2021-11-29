@@ -1,21 +1,29 @@
 <template>
   <div id="app">
+    <!-- Navigation Header -->
     <div id="nav">     
-      <a href="/" class="router-link-exact-active">List View</a> |
-      <a href="/table">Table View</a> |
-      <a href="/add-review">Add Review</a> |
-      <a href="/about">About this Application</a>
+      <!-- <a href="/" class="router-link-exact-active">List View</a> | -->
+      <router-link v-bind:to="{name: 'Home'}">List View</router-link>
+      <!-- <a href="/table">Table View</a> | -->
+      <router-link v-bind:to="{name: 'Table'}"> | Table View</router-link>
+      <!-- <a href="/add-review">Add Review</a> | -->
+      <router-link v-bind:to="{name: 'New'}"> | Add Review</router-link>
+      <!-- <a href="/about">About this Application</a> -->
+      <router-link v-bind:to="{name: 'About'}"> | About</router-link>
     </div>
-    <product-review-view />
+
+    <!--Currently active page - this gets replaced by the active page in a route -->
+    <!-- <product-review-view /> -->
+    <router-view />
   </div>
 </template>
 
 <script>
-import ProductReviewView from './views/ProductReviewView.vue'
+// import ProductReviewView from './views/ProductReviewView.vue'
 
 export default {
   components: {
-    ProductReviewView
+    // ProductReviewView
   }
 }
 </script>
