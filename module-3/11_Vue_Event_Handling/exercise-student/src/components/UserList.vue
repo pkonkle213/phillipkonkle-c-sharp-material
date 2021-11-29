@@ -199,6 +199,13 @@ export default {
     },
     deleteSelectedUsers(){
       console.log("This doesn't work");
+      this.selectedUserIDs.forEach(num => {
+        for(let i=0; i < this.users.length; i++) {
+          if (this.users[i].id===num) {
+            this.users.splice(i,1);
+          }
+        }
+      });
 
       this.selectedUserIDs=[];
     },
