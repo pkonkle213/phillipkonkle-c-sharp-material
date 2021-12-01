@@ -32,7 +32,15 @@ export default new Vuex.Store({
       }
     ]
   },
-  mutations: {},
+  mutations: {
+    MARK_READ(state, payload) {
+      let book = state.books.find(b => b.isbn === payload.isbn);
+
+      if (book) {
+        book.read = payload.read;
+      }
+    }
+  },
   actions: {},
   modules: {},
   strict: true
