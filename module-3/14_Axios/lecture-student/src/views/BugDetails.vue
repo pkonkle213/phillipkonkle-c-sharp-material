@@ -10,17 +10,18 @@
       </nav>
 
       <h1>{{ bug.title}}</h1>
+
+      <div class="badges">
+        <priority-badge :bug="bug" />
+        <status-badge :bug="bug" />
+      </div>
+      
       <p>
           {{bug.description}}
       </p>
 
-      <h2>
-          Status:
-          <span v-if="bug.isOpen">Open</span>
-          <span v-if="!bug.isOpen">Closed</span>
-      </h2>
-
-      <p>
+      <p v-if="bug.resolution">
+          <strong>Resolution:</strong>
           {{bug.resolution}}
       </p>
 
@@ -37,9 +38,16 @@
 </template>
 
 <script>
+import PriorityBadge from '../components/PriorityBadge.vue';
+import StatusBadge from '../components/StatusBadge.vue';
+
 export default {
+    components: {
+        PriorityBadge,
+        StatusBadge
+    },
     data() {
-        return {
+        return {    
             bug: undefined
         }
     },
@@ -71,5 +79,9 @@ export default {
 <style lang="scss">
     .btn {
         margin-right: 1rem;
+    }
+
+    .badges {
+        margin-bottom: 1rem;
     }
 </style>
