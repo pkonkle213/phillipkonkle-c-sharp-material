@@ -35,8 +35,9 @@ namespace Capstone
             // Add CORS policy allowing any origin
             services.AddCors(options =>
             {
-                options.AddPolicy("CorsPolicy",
-                builder => builder.AllowAnyOrigin().AllowAnyMethod().AllowAnyHeader());
+                options.AddPolicy("CorsPolicy", builder => builder.AllowAnyOrigin()
+                                                                  .AllowAnyMethod()
+                                                                  .AllowAnyHeader());
             });
 
             // configure jwt authentication
@@ -45,11 +46,11 @@ namespace Capstone
 
             // Dependency Injection configuration.
             // Non-testing settings will be pulled from the secure environment when hosted on a server
-            services.AddSingleton<ITokenGenerator>(tk => new JwtGenerator(Configuration["JwtSecret"]));
-            services.AddSingleton<IPasswordHasher>(ph => new PasswordHasher());
+            services.AddSingleton<ITokenGenerator>(sp => new JwtGenerator(Configuration["JwtSecret"]));
+            services.AddSingleton<IPasswordHasher>(sp => new PasswordHasher());
 
             string connectionString = Configuration.GetConnectionString("Project");
-            services.AddTransient<IUserDAO>(m => new UserSqlDAO(connectionString));
+            services.AddTransient<IUserDAO>(sp => new UserSqlDAO(connectionString));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -103,7 +104,6 @@ namespace Capstone
                 s.IncludeXmlComments(xmlPath);
             });
         }
-
 
         private static void ConfigureJwtAuthentication(IServiceCollection services, byte[] key)
         {
