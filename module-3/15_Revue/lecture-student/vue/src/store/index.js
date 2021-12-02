@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Vuex from 'vuex'
 import axios from 'axios'
 
-Vue.use(Vuex)
+Vue.use(Vuex);
 
 /*
  * The authorization header is set for axios when you login but what happens when you come back or
@@ -11,11 +11,13 @@ Vue.use(Vuex)
  */
 const currentToken = localStorage.getItem('token')
 
+// Try to get the stored token from the browser's local storage so the user doesn't have to login again
 let currentUser = null;
 if ((localStorage.getItem('user') && localStorage.getItem('user') != 'undefined')) {
   currentUser = JSON.parse(localStorage.getItem('user'));
 }
 
+// If the user is logged in already, make sure Axios sends the correct Bearer token
 if(currentToken && currentToken != 'undefined') {
   axios.defaults.headers.common['Authorization'] = `Bearer ${currentToken}`;
 }
@@ -51,19 +53,26 @@ export default new Vuex.Store({
     },
     // Authentication-related    
     SET_AUTH_TOKEN(state, token) {
+      // Store the token for future sessions
       state.token = token;
       localStorage.setItem('token', token);
+
+      // Ensure future requests include the auth token
       axios.defaults.headers.common['Authorization'] = `Bearer ${token}`
     },
     SET_USER(state, user) {
       state.user = user;
+      // Store the user for next time the user visits the page
       localStorage.setItem('user',JSON.stringify(user));
     },
     LOGOUT(state) {
+      // Clear any stored tokens
       localStorage.removeItem('token');
       localStorage.removeItem('user');
       state.token = '';
       state.user = {};
+
+      // Make sure Axios doesn't send the auth token
       axios.defaults.headers.common = {};
     }
   }
