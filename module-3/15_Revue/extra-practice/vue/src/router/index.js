@@ -5,6 +5,11 @@ import Login from "../views/Login.vue";
 import Logout from "../views/Logout.vue";
 import Register from "../views/Register.vue";
 import store from "../store/index";
+import BugList from '../views/BugsList.vue'
+import BugDetails from '../views/BugDetails.vue'
+import AddBug from '../views/AddBug.vue'
+import NotFound from '../views/NotFound.vue'
+import BugEdit from '../views/EditBug.vue'
 
 Vue.use(Router);
 
@@ -22,12 +27,34 @@ const router = new Router({
   base: process.env.BASE_URL,
   routes: [
     {
-      path: "/",
-      name: "home",
-      component: Home,
-      meta: {
-        requiresAuth: false,
-      },
+      path: '/',
+      name: 'Home',
+      component: Home
+    },
+    {
+      path: '/bugs',
+      name: 'BugsList',
+      component: BugList
+    },
+    {
+      path: '/bugs/new',
+      name: 'NewBug',
+      component: AddBug,
+    },
+    {
+      path: '/bugs/:id/edit',
+      name: 'BugEdit',
+      component: BugEdit
+    },
+    {
+      path: '/bugs/:id',
+      name: 'BugDetails',
+      component: BugDetails,
+    },
+    {
+      path: '/about',
+      name: 'About',
+      component: () => import('../views/About.vue')
     },
     {
       path: "/login",
@@ -54,9 +81,10 @@ const router = new Router({
       },
     },
     {
-      path: "*",
-      redirect: "/",
-    },
+      path: '*',
+      name: 'NotFound',
+      component: NotFound
+    },    
   ],
 });
 

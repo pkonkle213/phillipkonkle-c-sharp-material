@@ -7,41 +7,12 @@ using Capstone.Models;
 namespace CapstoneTest
 {
     [TestClass]
-    public class UserSqlDAOTest
+    public class UserSqlDAOTest : SqlDaoTestBase
     {
-        private string connectionString = @"Server=.\SQLEXPRESS;Database=final_capstone;Trusted_Connection=True;";
-
-        private TransactionScope transaction;
-
-        [TestInitialize]
-        public void Initalize()
-        {
-            transaction = new TransactionScope();
-
-            using (SqlConnection conn = new SqlConnection(connectionString))
-            {
-                conn.Open();
-
-                string sql_insert = "INSERT INTO users (username, password_hash, salt, user_role) " +
-                    "VALUES ('notauser', 'jjjjjjjjj', 'kkkkkkkkkk', 'user');";
-                SqlCommand cmd = new SqlCommand(sql_insert, conn);
-                int count = cmd.ExecuteNonQuery();
-
-                Assert.AreEqual(1, count, "Insert into user failed");
-            }
-        }
-
-        [TestCleanup]
-        public void Cleanup()
-        {
-            transaction.Dispose();
-        }
-
-
         [TestMethod]
         public void GetUserTest()
         {
-            UserSqlDAO access = new UserSqlDAO(connectionString);
+            UserSqlDAO access = new UserSqlDAO(ConnectionString);
 
             User user = access.GetUser("notauser");
 
@@ -53,7 +24,7 @@ namespace CapstoneTest
         [TestMethod]
         public void AddUserTest()
         {
-            UserSqlDAO access = new UserSqlDAO(connectionString);
+            UserSqlDAO access = new UserSqlDAO(ConnectionString);
 
             User user = access.AddUser("anotheruser", "password", "admin");
 
