@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import topicService from "../services/TopicService";
+import TopicService from '../services/TopicService';
 
 export default {
   name: "create-topic",
@@ -24,7 +24,16 @@ export default {
     };
   },
   methods: {
-    saveTopic() {}
+    saveTopic() {
+      TopicService.add(this.topic)
+      .then(response => {
+        console.log('I did it?', response.data);
+        this.$router.push({name: 'Home'});
+      })
+      .catch(response => {
+        console.error('You failed', response);
+      });
+    }
   }
 };
 </script>

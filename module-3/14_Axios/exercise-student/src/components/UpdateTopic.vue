@@ -11,7 +11,7 @@
 </template>
 
 <script>
-import topicService from "../services/TopicService";
+import TopicService from "../services/TopicService";
 
 export default {
   name: "update-topic",
@@ -22,13 +22,20 @@ export default {
     };
   },
   methods: {
-    updateTopic() {
+    update() {
       const topic = { id: this.topicID, title: this.title };
-      // call topic service update method
+      TopicService.update(topic.id, topic)
+      .then(response => {
+        console.log('I did it?', response.data);
+        this.$router.push({name: 'Home'});
+      })
+      .catch(response => {
+        console.error('You failed', response);
+      });
     }
   },
   created() {
-    topicService
+    TopicService
       .get(this.topicID)
       .then(response => {
         this.$store.commit("SET_ACTIVE_TOPIC", response.data);

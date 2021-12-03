@@ -28,17 +28,25 @@
 </template>
 
 <script>
-import topicService from "@/services/TopicService.js";
+import TopicService from '../services/TopicService';
 
 export default {
   name: "topic-list",
   methods: {
     getTopics() {
-      topicService.list().then(response => {
+      TopicService.list().then(response => {
         this.$store.commit("SET_TOPICS", response.data);
       });
     },
-    deleteTopic(id) {}
+    delete(id) {
+      TopicService.delete(id)
+      .then(() => {
+        this.getTopics();
+      })
+      .catch(response => {
+        console.log("Failed to delete the topic.", response);
+      })
+    }
   },
   created() {
     this.getTopics();

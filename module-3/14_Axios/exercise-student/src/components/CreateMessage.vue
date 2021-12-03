@@ -32,7 +32,15 @@ export default {
   },
   methods: {
     saveMessage() {
-
+      console.log("HI THERE");
+      messageService.add(this.message)
+      .then(response => {
+        console.log('I did it?', response.data);
+        this.$router.push({name: 'Messages', params: {id: this.message.topicId}});
+      })
+      .catch(response => {
+        console.error('You failed', response);
+      });
     }
   }
 };
