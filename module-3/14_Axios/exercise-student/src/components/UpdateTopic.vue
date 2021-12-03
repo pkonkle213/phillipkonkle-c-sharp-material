@@ -5,7 +5,7 @@
       <input type="text" v-model="title" />
     </div>
     <div class="actions">
-      <button type="submit" v-on:click="updateTopic()">Save Document</button>
+      <button type="submit" v-on:click="update()">Save Document</button>
     </div>
   </form>
 </template>
@@ -24,7 +24,8 @@ export default {
   methods: {
     update() {
       const topic = { id: this.topicID, title: this.title };
-      TopicService.update(topic.id, topic)
+      console.log("Hi?");
+      TopicService.update(topic.id,topic)
       .then(response => {
         console.log('I did it?', response.data);
         this.$router.push({name: 'Home'});
