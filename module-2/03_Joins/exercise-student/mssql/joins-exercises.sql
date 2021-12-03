@@ -229,8 +229,7 @@ FROM
 	INNER JOIN address a ON a.address_id = s.address_id
 	INNER JOIN payment p ON p.rental_id = r.rental_id
 GROUP BY
-	s.store_id,
-	a.address
+	s.store_id
 ORDER BY
 	s.store_id
 
